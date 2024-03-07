@@ -2,10 +2,10 @@ app OpenSaaS {
   wasp: {
     version: "^0.12.0"
   },
-  title: "My Open SaaS App",
+  title: "Notes App",
   head: [
         "<meta property='og:type' content='website' />",
-        "<meta property='og:title' content='My Open SaaS App' />",
+        "<meta property='og:title' content='Notes App' />",
         "<meta property='og:url' content='https://opensaas.sh' />", 
         "<meta property='og:description' content='I made a SaaS App. Buy my stuff.' />",
         "<meta property='og:image' content='https://opensaas.sh/public-banner.png' />",
