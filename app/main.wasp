@@ -177,7 +177,7 @@ psl=}
 
 route LandingPageRoute { path: "/", to: LandingPage }
 page LandingPage {
-  component: import LandingPage from "@src/client/landing-page/LandingPage"
+  component: import Home from "@src/client/pages/Home"
 }
 
 route LoginRoute { path: "/login", to: LoginPage }
@@ -232,66 +232,6 @@ route FileUploadRoute { path: "/file-upload", to: FileUploadPage }
 page FileUploadPage {
   authRequired: true,
   component: import FileUpload from "@src/client/app/FileUploadPage"
-}
-
-route AdminRoute { path: "/admin", to: DashboardPage }
-page DashboardPage {
-  authRequired: true,
-  component: import Dashboard from "@src/client/admin/pages/DashboardPage"
-}
-
-route AdminUsersRoute { path: "/admin/users", to: AdminUsersPage }
-page AdminUsersPage {
-  authRequired: true,
-  component: import AdminUsers from "@src/client/admin/pages/Users"
-}
-
-route AdminSettingsRoute { path: "/admin/settings", to: AdminSettingsPage }
-page AdminSettingsPage {
-  authRequired: true,
-  component: import AdminSettings from "@src/client/admin/pages/Settings"
-}
-
-route AdminChartsRoute { path: "/admin/chart", to: AdminChartsPage }
-page AdminChartsPage {
-  authRequired: true,
-  component: import AdminCharts from "@src/client/admin/pages/Chart"
-}
-
-route AdminMessagesRoute { path: "/admin/messages", to: AdminMessagesPage }
-page AdminMessagesPage {
-  authRequired: true,
-  component: import AdminMessages from "@src/client/admin/pages/Messages"
-}
-
-route AdminFormElementsRoute { path: "/admin/forms/form-elements", to: AdminFormElementsPage }
-page AdminFormElementsPage {
-  authRequired: true,
-  component: import AdminForms from "@src/client/admin/pages/Form/FormElements"
-}
-
-route AdminFormLayoutsRoute { path: "/admin/forms/form-layouts", to: AdminFormLayoutsPage }
-page AdminFormLayoutsPage {
-  authRequired: true,
-  component: import AdminForms from "@src/client/admin/pages/Form/FormLayout"
-}
-
-route AdminCalendarRoute { path: "/admin/calendar", to: AdminCalendarPage }
-page AdminCalendarPage {
-  authRequired: true,
-  component: import AdminCalendar from "@src/client/admin/pages/Calendar"
-}
-
-route AdminUIAlertsRoute { path: "/admin/ui/alerts", to: AdminUIAlertsPage }
-page AdminUIAlertsPage {
-  authRequired: true,
-  component: import AdminUI from "@src/client/admin/pages/UiElements/Alerts"
-}
-
-route AdminUIButtonsRoute { path: "/admin/ui/buttons", to: AdminUIButtonsPage }
-page AdminUIButtonsPage {
-  authRequired: true,
-  component: import AdminUI from "@src/client/admin/pages/UiElements/Buttons"
 }
 
 /* ⛑ These are the Wasp Operations, which allow the client and server to interact:
