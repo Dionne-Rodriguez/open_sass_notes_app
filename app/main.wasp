@@ -175,12 +175,12 @@ psl=}
  * https://wasp-lang.dev/docs/tutorial/pages
  */
 
-route LandingPageRoute { path: "/", to: LandingPage }
-page LandingPage {
-  component: import Home from "@src/client/pages/Home"
-}
+// route LandingPageRoute { path: "/", to: LandingPage }
+// page LandingPage {
+//   component: import Home from "@src/client/pages/Home"
+// }
 
-route LoginRoute { path: "/login", to: LoginPage }
+route LoginRoute { path: "/", to: LoginPage }
 page LoginPage {
   component: import Login from "@src/client/auth/LoginPage"
 }
