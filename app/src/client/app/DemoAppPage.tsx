@@ -13,7 +13,7 @@ import { useState, useMemo } from 'react';
 import { CgSpinner } from 'react-icons/cg';
 import { TiDelete } from 'react-icons/ti';
 import { type GeneratedSchedule } from '../../shared/types';
-import { MainTask, Subtask } from '../../shared/types';
+
 
 export default function DemoAppPage() {
   return (
@@ -21,12 +21,11 @@ export default function DemoAppPage() {
       <div className='mx-auto max-w-7xl px-6 lg:px-8'>
         <div className='mx-auto max-w-4xl text-center'>
           <h2 className='mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl dark:text-white'>
-            <span className='text-yellow-500'>AI</span> Day Scheduler
+            <span className='text-yellow-500'>Notes</span> App
           </h2>
         </div>
         <p className='mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600 dark:text-white'>
-          This example app uses OpenAI's chat completions with function calling to return a structured JSON object. Try
-          it out, enter your day's tasks, and let AI do the rest!
+        Create Notes 
         </p>
         {/* begin AI-powered Todo List */}
         <div className='my-8 border rounded-3xl border-gray-900/10 dark:border-gray-100/10'>
@@ -62,7 +61,7 @@ function Todo({ id, isDone, description, time }: TodoProps) {
   };
 
   return (
-    <div className='flex items-center justify-between bg-purple-50 rounded-lg border border-gray-200 p-2 w-full'>
+    <div className='flex items-center justify-between bg-blue-50 rounded-lg border border-gray-200 p-2 w-full'>
       <div className='flex items-center justify-between gap-5 w-full'>
         <div className='flex items-center gap-3'>
           <input
@@ -73,7 +72,7 @@ function Todo({ id, isDone, description, time }: TodoProps) {
           />
           <span className={`text-slate-600 ${isDone ? 'line-through text-slate-500' : ''}`}>{description}</span>
         </div>
-        <div className='flex items-center gap-2'>
+        {/* <div className='flex items-center gap-2'>
           <input
             id='time'
             type='number'
@@ -86,7 +85,7 @@ function Todo({ id, isDone, description, time }: TodoProps) {
             onChange={handleTimeChange}
           />
           <span className={`italic text-slate-600 text-xs ${isDone ? 'text-slate-500' : ''}`}>hrs</span>
-        </div>
+        </div> */}
       </div>
       <div className='flex items-center justify-end w-15'>
         <button className='p-1' onClick={handleDeleteClick} title='Remove task'>
@@ -200,7 +199,7 @@ function NewTaskForm({ handleCreateTask }: { handleCreateTask: typeof createTask
             type='text'
             id='description'
             className='text-sm text-gray-600 w-full rounded-md border border-gray-200 bg-[#f5f0ff] shadow-md focus:outline-none focus:border-transparent focus:shadow-none duration-200 ease-in-out hover:shadow-none'
-            placeholder='Enter task description'
+            placeholder='Enter note description'
             value={description}
             onChange={(e) => setDescription(e.currentTarget.value)}
             onKeyDown={(e) => {
@@ -214,7 +213,7 @@ function NewTaskForm({ handleCreateTask }: { handleCreateTask: typeof createTask
             onClick={handleSubmit}
             className='min-w-[7rem] font-medium text-gray-800/90 bg-yellow-50 shadow-md ring-1 ring-inset ring-slate-200 py-2 px-4 rounded-md hover:bg-yellow-100 duration-200 ease-in-out focus:outline-none focus:shadow-none hover:shadow-none'
           >
-            Add Task
+            Add Note
           </button>
         </div>
       </div>
@@ -228,159 +227,18 @@ function NewTaskForm({ handleCreateTask }: { handleCreateTask: typeof createTask
             ))}
             <div className='flex flex-col gap-3'>
               <div className='flex items-center justify-between gap-3'>
-                <label htmlFor='time' className='text-sm text-gray-600 dark:text-gray-300 text-nowrap font-semibold'>
-                  How many hours will you work today?
-                </label>
-                <input
-                  type='number'
-                  id='time'
-                  step={0.5}
-                  min={1}
-                  max={24}
-                  className='min-w-[7rem] text-gray-800/90 text-center font-medium rounded-md border border-gray-200 bg-yellow-50 hover:bg-yellow-100 shadow-md focus:outline-none focus:border-transparent focus:shadow-none duration-200 ease-in-out hover:shadow-none'
-                  value={todaysHours}
-                  onChange={(e) => setTodaysHours(e.currentTarget.value)}
-                />
+              
               </div>
             </div>
           </div>
         ) : (
-          <div className='text-gray-600 text-center'>Add tasks to begin</div>
+          <div className='text-gray-600 text-center'>Add notes to begin</div>
         )}
       </div>
 
-      <button
-        type='button'
-        disabled={isPlanGenerating || tasks?.length === 0}
-        onClick={() => handleGeneratePlan()}
-        className='flex items-center justify-center min-w-[7rem] font-medium text-gray-800/90 bg-yellow-50 shadow-md ring-1 ring-inset ring-slate-200 py-2 px-4 rounded-md hover:bg-yellow-100 duration-200 ease-in-out focus:outline-none focus:shadow-none hover:shadow-none disabled:opacity-70 disabled:cursor-not-allowed'
-      >
-        {isPlanGenerating ? (
-          <>
-            <CgSpinner className='inline-block mr-2 animate-spin' />
-            Generating...
-          </>
-        ) : (
-          'Generate Schedule'
-        )}
-      </button>
-
-      {!!response && (
-        <div className='flex flex-col'>
-          <h3 className='text-lg font-semibold text-gray-900 dark:text-white'>Today's Schedule</h3>
-
-          <TaskTable schedule={response} />
-        </div>
-      )}
-    </div>
-  );
-}
-
-function TaskTable({ schedule }: { schedule: GeneratedSchedule }) {
-  return (
-    <div className='flex flex-col gap-6 py-6'>
-      <table className='table-auto w-full border-separate border border-spacing-2 rounded-md border-slate-200 shadow-sm'>
-        {!!schedule.mainTasks ? (
-          schedule.mainTasks
-            .map((mainTask) => <MainTaskTable key={mainTask.name} mainTask={mainTask} subtasks={schedule.subtasks} />)
-            .sort((a, b) => {
-              const priorityOrder = ['low', 'medium', 'high'];
-              if (a.props.mainTask.priority && b.props.mainTask.priority) {
-                return (
-                  priorityOrder.indexOf(b.props.mainTask.priority) - priorityOrder.indexOf(a.props.mainTask.priority)
-                );
-              } else {
-                return 0;
-              }
-            })
-        ) : (
-          <div className='text-slate-600 text-center'>OpenAI didn't return any Main Tasks. Try again.</div>
-        )}
-      </table>
-
-      {/* ))} */}
-    </div>
-  );
-}
-
-function MainTaskTable({ mainTask, subtasks }: { mainTask: MainTask; subtasks: Subtask[] }) {
-  return (
-    <>
-      <thead>
-        <tr>
-          <th
-            className={`flex items-center justify-between gap-5 py-4 px-3 text-slate-800 border rounded-md border-slate-200 bg-opacity-70 ${
-              mainTask.priority === 'high'
-                ? 'bg-red-100'
-                : mainTask.priority === 'low'
-                ? 'bg-green-100'
-                : 'bg-yellow-100'
-            }`}
-          >
-            <span>{mainTask.name}</span>
-            <span className='opacity-70 text-xs font-medium italic'> {mainTask.priority} priority</span>
-          </th>
-        </tr>
-      </thead>
-      {!!subtasks ? (
-        subtasks.map((subtask) => {
-          if (subtask.mainTaskName === mainTask.name) {
-            return (
-              <tbody key={subtask.description}>
-                <tr>
-                  <td
-                    className={`flex items-center justify-between gap-4 py-2 px-3 text-slate-600 border rounded-md border-purple-100 bg-opacity-60 ${
-                      mainTask.priority === 'high'
-                        ? 'bg-red-50'
-                        : mainTask.priority === 'low'
-                        ? 'bg-green-50'
-                        : 'bg-yellow-50'
-                    }`}
-                  >
-                    <SubtaskTable description={subtask.description} time={subtask.time} />
-                  </td>
-                </tr>
-              </tbody>
-            );
-          }
-        })
-      ) : (
-        <div className='text-slate-600 text-center'>OpenAI didn't return any Subtasks. Try again.</div>
-      )}
-    </>
-  );
-}
-
-function SubtaskTable({ description, time }: { description: string; time: number }) {
-  const [isDone, setIsDone] = useState<boolean>(false);
-
-  const convertHrsToMinutes = (time: number) => {
-    if (time === 0) return 0;
-    const hours = Math.floor(time);
-    const minutes = Math.round((time - hours) * 60);
-    return `${hours > 0 ? hours + 'hr' : ''} ${minutes > 0 ? minutes + 'min' : ''}`;
-  };
-
-  const minutes = useMemo(() => convertHrsToMinutes(time), [time]);
-
-  return (
-    <>
-      <input
-        type='checkbox'
-        className='ml-1 form-checkbox bg-purple-500 checked:bg-purple-300 rounded border-purple-600 duration-200 ease-in-out hover:bg-purple-600 hover:checked:bg-purple-600 focus:ring focus:ring-purple-300 focus:checked:bg-purple-400 focus:ring-opacity-50'
-        checked={isDone}
-        onChange={(e) => setIsDone(e.currentTarget.checked)}
-      />
-      <span
-        className={`leading-tight justify-self-start w-full text-slate-600 ${
-          isDone ? 'line-through text-slate-500 opacity-50' : ''
-        }`}
-      >
-        {description}
-      </span>
-      <span className={`text-slate-600 text-right ${isDone ? 'line-through text-slate-500 opacity-50' : ''}`}>
-        {minutes}
-      </span>
-    </>
+      
+       
+    
+   </div>
   );
 }
