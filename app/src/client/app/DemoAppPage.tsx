@@ -61,7 +61,7 @@ function Todo({ id, isDone, description, time }: TodoProps) {
   };
 
   return (
-    <div className='flex items-center justify-between bg-blue-50 rounded-lg border border-gray-200 p-2 w-full'>
+    <div className='flex items-center justify-between bg-red-50 rounded-lg border border-gray-200 p-2 w-full'>
       <div className='flex items-center justify-between gap-5 w-full'>
         <div className='flex items-center gap-3'>
           <input
@@ -85,7 +85,7 @@ function Todo({ id, isDone, description, time }: TodoProps) {
             onChange={handleTimeChange}
           />
           <span className={`italic text-slate-600 text-xs ${isDone ? 'text-slate-500' : ''}`}>hrs</span>
-        </div> */}
+        </div> */} 
       </div>
       <div className='flex items-center justify-end w-15'>
         <button className='p-1' onClick={handleDeleteClick} title='Remove task'>
