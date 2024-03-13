@@ -7,7 +7,7 @@ app OpenSaaS {
         "<meta property='og:type' content='website' />",
         "<meta property='og:title' content='Notes App' />",
         "<meta property='og:url' content='https://opensaas.sh' />", 
-        "<meta property='og:description' content='I made a SaaS App. Buy my stuff.' />",
+        "<meta property='og:description' content='Ascend group' />",
         "<meta property='og:image' content='https://opensaas.sh/public-banner.png' />",
         "<meta name='twitter:image' content='https://opensaas.sh/public-banner.png' />", 
         "<meta name='twitter:image:width' content='800' />",
@@ -174,11 +174,6 @@ psl=}
 /* 📡 These are the Wasp Routes (You can protect them easily w/ 'authRequired: true');
  * https://wasp-lang.dev/docs/tutorial/pages
  */
-
-// route LandingPageRoute { path: "/", to: LandingPage }
-// page LandingPage {
-//   component: import Home from "@src/client/pages/Home"
-// }
 
 route LoginRoute { path: "/", to: LoginPage }
 page LoginPage {
