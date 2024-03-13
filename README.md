@@ -12,7 +12,7 @@ Please read detailed project documentation here [SaaS Note App Documentation](ht
 ### App Description:
 When users visit the [SaaS Notes App](https://leons-notes-app-client.fly.dev/) they can choose to log in or sign up as a new user. Once logged into the app users are prompted to begin entering notes they'd like to save. Users can then cross out notes as needed and delete each individual note.
 
-Languages/Frameworks/Environments: REACT | JS | NODE | Wasp| SaaS| Tailwind | Docker | WSL2 | PostgreSQL | Jest 
+Languages/Frameworks/Environments: REACT | JS | NODE | Wasp| SaaS| Tailwind | Docker | WSL2 | PostgreSQL  
 
 #### Team:
 - Danny
