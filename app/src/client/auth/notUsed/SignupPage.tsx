@@ -1,6 +1,7 @@
 // import { SignupForm } from 'wasp/client/auth';
 // import { Link } from 'react-router-dom';
 // import { AuthWrapper } from './authWrapper';
+//this file has been moved to unused folder, if using it, make sure to fix the routes in main.wasp
 
 // export function Signup() {
 //   return (

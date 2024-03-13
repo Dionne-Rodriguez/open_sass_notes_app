@@ -4,6 +4,7 @@ import { TierIds, STRIPE_CUSTOMER_PORTAL_LINK } from '../../shared/constants';
 import { AiFillCheckCircle } from 'react-icons/ai';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+//this file has been moved to unused folder, if using it, make sure to fix the routes in main.wasp
 
 export const tiers = [
   {

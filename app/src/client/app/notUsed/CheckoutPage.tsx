@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
+//this file has been moved to unused folder, if using it, make sure to fix the routes in main.wasp
 
 export default function CheckoutPage() {
   const [paymentStatus, setPaymentStatus] = useState('loading');

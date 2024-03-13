@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthWrapper } from './authWrapper';
 
+//this file is titled loginPage but it functions more like landing page. Currently the first page that loads and it will render either the login or the signup form on this one page. Name change pending if this turns out to be desirable for the future.
+
 export default function Login() {
   const [signUp, setSignUp] = useState(0);
   const history = useHistory();

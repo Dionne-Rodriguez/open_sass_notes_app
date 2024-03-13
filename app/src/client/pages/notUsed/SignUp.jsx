@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import SignUpForm from '../components/SignUpForm';
 import { useState } from 'react';
 import axios from 'axios';
+//this file has been moved to unused folder, if using it, make sure to fix the routes in main.wasp
 
 function SignUp() {
   const [username, setUsername] = useState('');

@@ -6,6 +6,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import SignUpForm from '../components/SignUpForm';
 
+//this file has been moved to unused folder, if using it, make sure to fix the routes in main.wasp
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');

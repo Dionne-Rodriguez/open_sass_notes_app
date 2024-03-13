@@ -3,6 +3,7 @@ import { type User } from 'wasp/entities';
 import { logout } from 'wasp/client/auth';
 import { STRIPE_CUSTOMER_PORTAL_LINK } from '../../shared/constants';
 import { TierIds } from '../../shared/constants';
+//this file has been moved to unused folder, if using it, make sure to fix the routes in main.wasp
 
 export default function AccountPage({ user }: { user: User }) {
   return (
