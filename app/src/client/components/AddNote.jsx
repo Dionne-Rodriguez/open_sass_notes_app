@@ -1,4 +1,3 @@
-//charles note: not sure why this is in auth folder. probably should be moved.
 
 function AddNote({note, setNote, createNote}) {
   return (
