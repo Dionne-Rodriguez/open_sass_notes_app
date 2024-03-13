@@ -27,9 +27,9 @@ export default function Login() {
         <br />
        <span className='text-sm font-medium text-gray-900 dark:text-gray-900'>
         Don't have an account yet?{' '}
-        <a onClick={handleClick} className='underline'>
+        <button onClick={handleClick} className='underline'>
           go to signup
-        </a>
+        </button>
     .
        </span>
       <br />
@@ -50,9 +50,9 @@ export default function Login() {
       <br />
       <span className='text-sm font-medium text-gray-900'>
         I already have an account (
-        <a onClick={handleClick} className='underline'>
+        <button onClick={handleClick} className='underline'>
           go to login
-        </a>
+        </button>
         ).
       </span>
       <br />
