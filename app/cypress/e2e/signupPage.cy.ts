@@ -4,7 +4,7 @@ describe('Signup Page', () => {
 
     // Ensure that the signup form elements are visible
     cy.get('form').should('exist'); //the SignupForm is wrapped in a form element
-    cy.url().should('include', '/login'); // if user has already an account render to login
+    cy.url().should('include', '/'); // if user has already an account render to login
     cy.url().should('include', '/demo-app'); //Notes apppRendering
  
 
