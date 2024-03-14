@@ -52,7 +52,7 @@ app OpenSaaS {
       //   userSignupFields: import { getEmailUserFields } from "@src/server/auth/setUsername.js",
       // },
     },
-    onAuthFailedRedirectTo: "/login",
+    onAuthFailedRedirectTo: "/",
     onAuthSucceededRedirectTo: "/demo-app",
   },
   db: { 
