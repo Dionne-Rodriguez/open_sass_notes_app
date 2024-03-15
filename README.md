@@ -1,45 +1,47 @@
-## Welcome to your new SaaS App! 🎉
-<a href="https://www.producthunt.com/posts/open-saas?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-open&#0045;saas" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=436467&theme=light" alt="Open&#0032;SaaS - Open&#0045;source&#0032;&#0038;&#0032;100&#0037;&#0032;free&#0032;React&#0032;&#0038;&#0032;Node&#0046;js&#0032;SaaS&#0032;starter&#0033; | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+# We are team Noted
 
-https://github.com/wasp-lang/open-saas/assets/70215737/5ff289b1-12b9-4b46-aa90-a6a3122de93e
-
-You've decided to build a SaaS app with the Open SaaS template. Great choice! 
-
-This template is:
-
-1. fully open-source
-2. completely free to use and distribute
-3. comes with a ton of features out of the box!
-4. focused on free, open-source services, where possible
-
-🧑‍💻 Check it out in action here: [OpenSaaS.sh](https://opensaas.sh)  
-📚 Check out the Docs here: [Open SaaS Docs](https://docs.opensaas.sh)
-
-## What's inside?
-
-The template itself is built on top of some very powerful tools and frameworks, including:
-
-- 🐝 [Wasp](https://wasp-lang.dev) - a full-stack React, NodeJS, Prisma framework with superpowers
-- 🚀 [Astro](https://starlight.astro.build/) - Astro's lightweight "Starlight" template for documentation and blog
-- 💸 [Stripe](https://stripe.com) - for products and payments
-- 📈 [Plausible](https://plausible.io) or [Google](https://analytics.google.com/) Analytics
-- 🤖 [OpenAI](https://openai.com) - OpenAI API integrated into the app or [Replicate](https://replicate.com/) (coming soon 👀)
-- 📦 [AWS S3](https://aws.amazon.com/s3/) - for file uploads
-- 📧 [SendGrid](https://sendgrid.com), [MailGun](https://mailgun.com), or SMTP - for email sending
-- 💅 [TailwindCSS](https://tailwindcss.com) - for styling
-- 🧑‍💼 [TailAdmin](https://tailadmin.com/) - admin dashboard & components for TailwindCSS
-
-Because we're using Wasp as the full-stack framework, we can leverage a lot of its features to build our SaaS in record time, including:
-
-- 🔐 [Full-stack Authentication](https://wasp-lang.dev/docs/auth/overview) - Email verified + social Auth in a few lines of code.
-- ⛑ [End-to-end Type Safety](https://wasp-lang.dev/docs/data-model/operations/overview) - Type your backend functions and get inferred types on the front-end automatically, without the need to install or configure any third-party libraries. Oh, and type-safe Links, too!
-- 🤖 [Jobs](https://wasp-lang.dev/docs/advanced/jobs) - Run cron jobs in the background or set up queues simply by defining a function in the config file.
-- 🚀 [One-command Deploy](https://wasp-lang.dev/docs/advanced/deployment/overview) - Easily deploy via the CLI to [Fly.io](https://fly.io), or to other providers like [Railway](https://railway.app) and [Netlify](https://netlify.com).
-
-You also get access to Wasp's diverse, helpful community if you get stuck or need help.
-- 🤝 [Wasp Discord](https://discord.gg/aCamt5wCpS)
+### Explore our Saas Notes App – Your central platform for capturing and curating all your essential ideas!
+![Welcome to our Note app where your ideas and notes are stored for efficient organization!](https://i.imgur.com/XIpqtqv.png)
 
 
-Note that we've tried to get as many of the core features of a SaaS app into this template as possible, but there still might be some missing features or functionality.
+### Visit App and Testing Documentation:
+Please visit and explore the hosted app here [SaaS Notes App](https://leons-notes-app-client.fly.dev/) 
 
-We could always use some help tying up loose ends, so consider [contributing](https://github.com/wasp-lang/open-saas/blob/main/CONTRIBUTING.md)!
+Please read detailed project documentation here [SaaS Note App Documentation](https://www.notion.so/Ascend-SaaS-Notes-Documentation-Notes-c108933b15db4944a97d95c4c0882236?pvs=4)
+
+### App Description:
+When users visit the [SaaS Notes App](https://leons-notes-app-client.fly.dev/) they can choose to log in or sign up as a new user. Once logged into the app users are prompted to begin entering notes they'd like to save. Users can then cross out notes as needed and delete each individual note.
+
+Languages/Frameworks/Environments: REACT | JS | NODE | Wasp| SaaS| Tailwind | Docker | WSL2 | PostgreSQL  
+
+#### Team:
+- Danny
+- Dionne
+- Zrybea
+- Jasmine
+- Charles
+- Amaury
+<hr>
+
+### Most Challenging part
+- Despite the fact that the goal is to simplify and streamline app creation, setting up and understanding Wasp was very difficult at first. The way the files are structured and the way the magic works is relatively unique but isn't very self-explanatory, even with their relatively good documentation. 
+<hr>
+
+### Most enjoyable part
+- Once the initial setup was complete, the documentation had been read and a few errors were out of the way, it waas quite enjoyable how quickly we went from nothing to a functioning app. It was also particularly enjoyable how little work we had to do in regards to styling to get thigns to look the way we want..
+<hr>
+
+### How would we improve this project?
+- There's a lot of room for improvement on this project, even if we were to keep the scope hyper-limited to just a simple note-taking app. These improvements would include basic code refactoring for best practices and cleaner, more legible and well commented code, as well as the removal or at least hiding and commenting of the many features of wasp we didn't end up needing and likely never will with such a simple app. On the other hand, it would be a fun challenge to find a way to use the AI feature that comes baked in with Wasp, for example, like automatically organize and tag user submitted notes.  A less complicated set of features would also be an easy improvement here, like the ability to pin user generated notes and to see & interact with others notes. Additionally, we would impliment more testing for specific funtionality like CRUD. We would also have liked to add end to end testing. 
+<hr>
+
+### What have we learned while using Wasp for this project?
+-Documentation is king. While readable and well-structured code is ideal, this project really struck home the importance of good documentation. What at first seemed like an illegible mess proved to be a well-made and intentionally structured tool once we read through the documentation. The documentation was a great help even though its clear they still have much work to do on it still.
+-In a world of more and more new tools like wasp that do many things at once and make it look easy: this experience was a great reminder that this comes with downsides as well. The lack of control, familiarity and understanding that came with using such a tool wasn't insurmountable, but absolutely something we'll be factoring in going forwards before choosing to use any such atool for a temporary or infrequent problem.
+-Sometimes using a tool to make things faster and easier results in such a steep learning curve that you don't save any time, especially if it's a limited use case or if the tool does a lot more than you actually need. 
+-Join the community! Our learning curve became a whole lot more managable once we joined the Wasp discord. Even without talking to anybody directly, we immediately got great value just from searching through their discord for specific and relevant  information.
+<hr>
+This project had it's many challenges with understanding Wasp and the new ways to simplify the full-stack build. This wasp project and tool was very different from anything we've worked with before and we're quite proud of the result considering this is only a week after being introduced to wasp. While we'd like to take all the credit, this is also a testament to the utility and ease of use that comes with this tool.
+
+Our [SaaS Note App Documentation](https://www.notion.so/Ascend-Notes-Documentation-29f35195934c41ccb28cb9b920610432?pvs=4) is clear and concise for both Mac and Windows users! Writing our documentation helped us better understand the structure of this project in order to piece it together. 
+<hr>

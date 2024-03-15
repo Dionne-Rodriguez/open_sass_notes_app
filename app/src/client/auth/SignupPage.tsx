@@ -9,7 +9,7 @@ export function Signup() {
       <br />
       <span className='text-sm font-medium text-gray-900'>
         I already have an account (
-        <Link to='/login' className='underline'>
+        <Link to='/' className='underline'>
           go to login
         </Link>
         ).
