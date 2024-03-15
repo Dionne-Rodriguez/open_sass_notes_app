@@ -1,12 +1,8 @@
-import { mockServer, renderInContext } from 'wasp/client/test';
-import { HttpMethod } from 'wasp/client';
-
-import { test, expect } from 'vitest';
-import { screen } from '@testing-library/react';
-import { getAllTasksByUser, deleteTask, createTask } from 'wasp/client/operations';
+import { renderInContext } from 'wasp/client/test';
+import { test, expect, vi, beforeEach } from 'vitest';
+import { screen, fireEvent } from '@testing-library/react';
+import { deleteTask, useQuery, getAllTasksByUser, createTask } from 'wasp/client/operations';
 import DemoApp from '../../app/DemoAppPage';
-
-const { mockQuery, mockApi } = mockServer();
 
 const mockTasks = [
   {
@@ -26,11 +22,51 @@ const mockTasks = [
     time: 'test-time',
   },
 ];
+vi.mock('wasp/client/operations', () => ({
+  deleteTask: vi.fn(),
+  getAllTasksByUser: vi.fn(() => [
+    {
+      id: '1',
+      description: 'test todo 1',
+      isDone: true,
+      userId: 1,
+      createdAt: new Date(),
+      time: 'test-time',
+    },
+  ]),
+  updateTask: vi.fn(),
+  createTask: vi.fn(),
+  useQuery: vi.fn(() => vi.fn(() => mockTasks)),
+  generateGptResponse: vi.fn(),
+}));
+
+beforeEach(() => {
+  vi.mocked(useQuery).mockImplementation(
+    () =>
+      ({
+        data: mockTasks,
+      }) as any
+  );
+});
+
+test('delete a task', async () => {
+  renderInContext(<DemoApp />);
+
+  await screen.findByText('test todo 1');
+
+  await screen.findByText('test todo 2');
+
+  const deleteButton = await screen.getAllByTitle('Remove task');
+
+  await deleteButton[0].click();
+
+  expect(deleteTask).toHaveBeenCalledWith({ id: '1' });
+});
 
 test('renders all the tasks', async () => {
-  mockQuery(getAllTasksByUser, mockTasks);
-
   renderInContext(<DemoApp />);
+
+  expect(useQuery).toHaveBeenCalled();
 
   await screen.findByText('test todo 1');
 
@@ -44,58 +80,11 @@ test('renders all the tasks', async () => {
 });
 
 test('can create a task', async () => {
-  mockQuery(getAllTasksByUser, mockTasks);
-
   renderInContext(<DemoApp />);
+  const input = await screen.findByPlaceholderText('Enter note description');
+  const submitBtn = await screen.findByTitle('submitBtn');
 
-  await screen.findByText('test todo 1');
-
-  const checkBoxes = await screen.getAllByRole('checkbox');
-
-  expect(checkBoxes[0]).toBeChecked();
-
-  await screen.findByText('test todo 2');
-
-  expect(checkBoxes[1]).not.toBeChecked();
-});
-
-test('delete a task', async () => {
-  const taskToDelete = {
-    id: '1',
-    description: 'test todo 1',
-    isDone: true,
-    userId: 1,
-    createdAt: new Date(),
-    time: 'test-time',
-  };
-
-  mockQuery(getAllTasksByUser, mockTasks);
-
-  mockApi(
-    { method: HttpMethod.Post, path: 'operations/delete-task' },
-    {
-      id: '1',
-      description: 'test todo 1',
-      isDone: true,
-      userId: 1,
-      createdAt: new Date(),
-      time: 'test-time',
-    }
-  );
-
-  renderInContext(<DemoApp />);
-
-  await screen.findByText('test todo 1');
-
-  const deleteButton = await screen.getAllByTitle('Remove task');
-
-  console.log(deleteButton.length, 'BEFORE CLICK');
-
-  await deleteButton[0].click();
-
-  await screen.findByText('test todo 2');
-
-  console.log(deleteButton.length, 'BEFORE CLICK');
-
-  //   expect(checkBoxes[1]).not.toBeChecked();
+  await fireEvent.change(input, { target: { value: 'walk the dog' } });
+  await fireEvent.click(submitBtn);
+  expect(createTask).toHaveBeenCalledWith({ description: 'walk the dog' });
 });

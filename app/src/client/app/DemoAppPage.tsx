@@ -1,5 +1,4 @@
 import { type Task } from 'wasp/entities';
-
 import {
   generateGptResponse,
   deleteTask,
@@ -8,12 +7,9 @@ import {
   useQuery,
   getAllTasksByUser,
 } from 'wasp/client/operations';
-
 import { useState, useMemo } from 'react';
-import { CgSpinner } from 'react-icons/cg';
 import { TiDelete } from 'react-icons/ti';
 import { type GeneratedSchedule } from '../../shared/types';
-
 
 export default function DemoAppPage() {
   return (
@@ -25,7 +21,7 @@ export default function DemoAppPage() {
           </h2>
         </div>
         <p className='mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600 dark:text-white'>
-        Create Notes 
+          Create Notes
         </p>
         {/* begin AI-powered Todo List */}
         <div className='my-8 border rounded-3xl border-gray-900/10 dark:border-gray-100/10'>
@@ -85,7 +81,7 @@ function Todo({ id, isDone, description, time }: TodoProps) {
             onChange={handleTimeChange}
           />
           <span className={`italic text-slate-600 text-xs ${isDone ? 'text-slate-500' : ''}`}>hrs</span>
-        </div> */} 
+        </div> */}
       </div>
       <div className='flex items-center justify-end w-15'>
         <button className='p-1' onClick={handleDeleteClick} title='Remove task'>
@@ -210,6 +206,7 @@ function NewTaskForm({ handleCreateTask }: { handleCreateTask: typeof createTask
           />
           <button
             type='button'
+            title='submitBtn'
             onClick={handleSubmit}
             className='min-w-[7rem] font-medium text-gray-800/90 bg-yellow-50 shadow-md ring-1 ring-inset ring-slate-200 py-2 px-4 rounded-md hover:bg-yellow-100 duration-200 ease-in-out focus:outline-none focus:shadow-none hover:shadow-none'
           >
@@ -226,19 +223,13 @@ function NewTaskForm({ handleCreateTask }: { handleCreateTask: typeof createTask
               <Todo key={task.id} id={task.id} isDone={task.isDone} description={task.description} time={task.time} />
             ))}
             <div className='flex flex-col gap-3'>
-              <div className='flex items-center justify-between gap-3'>
-              
-              </div>
+              <div className='flex items-center justify-between gap-3'></div>
             </div>
           </div>
         ) : (
           <div className='text-gray-600 text-center'>Add notes to begin</div>
         )}
       </div>
-
-      
-       
-    
-   </div>
+    </div>
   );
 }
