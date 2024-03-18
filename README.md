@@ -46,7 +46,9 @@ This project had it's many challenges with understanding Wasp and the new ways t
 
 Our [SaaS Todo App Documentation](https://www.notion.so/Ascend-Notes-Documentation-29f35195934c41ccb28cb9b920610432?pvs=4) is clear and concise for both Mac and Windows users! Writing our documentation helped us better understand the structure of this project in order to piece it together. 
 <hr>
+
 ### Images
+
 ![login and landing page](images/wasp%20doc/view1login.png)
 ![Signup Page](images/wasp%20doc/view2signup.png)
 ![signup validation](images/wasp%20doc/view3signupvalidation.png)
