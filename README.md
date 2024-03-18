@@ -57,6 +57,6 @@ Our [SaaS App Documentation](https://www.notion.so/Ascend-Notes-Documentation-29
 ![signup validation](images/wasp%20doc/view3signupvalidation.png)
 ![Logged in veiw](images/wasp%20doc/view4LoggedIn.png)
 ![New Note](images/wasp%20doc/view5newNote.png)
-![Crossed out note](images/wasp%20doc/view6crossedtask)
+![Crossed out note](images/wasp%20doc/view6crossedtask.png)
 
 ![](documentation.svg)

@@ -1,4 +1,7 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>SaaS Notes Documentation </title><style>
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <foreignObject width="100" height="100">
+
+    <html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>SaaS Notes Documentation </title><style>
 /* cspell:disable-file */
 /* webkit printing magic: print all background colors */
 html {
@@ -1520,3 +1523,5 @@ describe(&#x27;Signup Page&#x27;, () =&gt; {
 </p><p id="2c95e7d4-543b-4a21-a1dc-b88029521378" class="">
 </p><p id="b6f336a2-ba1a-4a80-a7e3-484e7d253dc2" class="">
 </p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</foreignObject>
+</svg>
