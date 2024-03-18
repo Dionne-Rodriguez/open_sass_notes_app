@@ -7,7 +7,7 @@
 ### Visit App and Testing Documentation:
 Please visit and explore the hosted app here [SaaS Notes App](https://leons-notes-app-client.fly.dev/) 
 
-Please read detailed project documentation here [SaaS Note App Documentation](https://www.notion.so/Ascend-SaaS-Notes-Documentation-Notes-c108933b15db4944a97d95c4c0882236?pvs=4)
+Please read detailed project documentation on notion here [SaaS Note App Documentation](https://www.notion.so/Ascend-SaaS-Notes-Documentation-Notes-c108933b15db4944a97d95c4c0882236?pvs=4) or on github page here [Saas Notes Documentation](https://charlesdefarias.github.io/documentation.html)
 
 ### App Description:
 When users visit the [SaaS App](https://leons-notes-app-client.fly.dev/) they can choose to log in or sign up as a new user. Once logged into the app users are prompted to begin entering tasks or notes they'd like to save. Users can then cross out said tasks/notes as needed and delete each individual one.
