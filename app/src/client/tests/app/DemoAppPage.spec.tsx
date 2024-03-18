@@ -3,6 +3,7 @@ import { test, expect, vi, beforeEach } from 'vitest';
 import { screen, fireEvent } from '@testing-library/react';
 import { deleteTask, useQuery, getAllTasksByUser, createTask } from 'wasp/client/operations';
 import DemoApp from '../../app/DemoAppPage';
+import React from 'react';
 
 const mockTasks = [
   {
