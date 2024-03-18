@@ -1,0 +1,1522 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>SaaS Notes Documentation </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c108933b-15db-4944-a97d-95c4c0882236" class="page serif"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1582137490248-c53207ec5602?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">✒️</span></div><h1 class="page-title">SaaS Notes Documentation </h1><p class="page-description"></p></header><div class="page-body"><h1 id="b501c08b-ae96-4630-a25d-57a209d7c6d6" class="">Intro:</h1><p id="076f2040-cafd-4735-a822-a533eefd5298" class="">Welcome to our SaaS Notes app. SaaS Notes App is a full-stack application, built with React, Wasp (Web Application Specification Programming) and PostgreSQL. Users are invited to organize a to do list by posting, deleting and crossing out notes as they are completed. This documentation provides an overview of how to run the application, it’s functionality and testing procedures.</p><p id="c2ef6113-bfdc-40ce-8c07-eb86d5672239" class="">
+</p><p id="c8c131a3-6b84-4818-821f-f17d59189cfb" class=""> To get started please go to the repository <a href="https://github.com/Dionne-Rodriguez/open_sass_notes_app?tab=readme-ov-file"> SaaS Notes App</a> and clone the project. </p><p id="f78ee67b-d693-413b-aba4-66da21575a26" class="">
+</p><h3 id="f4e467b3-72b1-4314-a43c-e87a7f2adfb2" class="">Installing and running the app locally for the first time:</h3><div id="ee5de7f6-a74f-4c43-b30d-970a4d2330a5" class="column-list"><div id="6aad2b27-6a82-42aa-ade4-1a15ef8470cc" style="width:100%" class="column"><ul id="963d6602-7183-4d39-a0f8-d162b24b9d68" class="toggle"><li><details open=""><summary>Mac users:</summary><ol type="1" id="59ade959-0155-4c2e-923b-3902e40152e3" class="numbered-list" start="1"><li>Make sure you have the most up to date version of <a href="https://github.com/nvm-sh/nvm">Node</a>, even though some of the wasp docs say to have a specific older version. That is outdated and as of March 2024, Wasp can handle the latest version of node.</li></ol><ol type="1" id="afe5fad7-357b-443d-ab0f-a03386c61f61" class="numbered-list" start="2"><li>Install <a href="https://docs.opensaas.sh/start/getting-started/">Wasp</a></li></ol><ol type="1" id="c123bafe-d8f1-426c-803a-60850d18f8c2" class="numbered-list" start="3"><li>Download <a href="https://www.docker.com/">Docker Desktop</a><ol type="a" id="b3aa0a51-f973-4424-a8ad-bd16ce8638f6" class="numbered-list" start="1"><li>YouTube tutorial: <a href="https://www.youtube.com/watch?v=3l5tqDUleYE">Installing Docker Desktop on Mac</a></li></ol></li></ol><ol type="1" id="43630bba-5f40-4ddf-8eb5-6774859f1204" class="numbered-list" start="4"><li>In your VS Code download the extension Wasp. This extension is the VS Code language extension for Wasp.<ol type="a" id="d8cce731-7664-4ed9-99f7-11fd5d6ceb68" class="numbered-list" start="1"><li>Extension ID: wasp-lang.wasp </li></ol></li></ol><ol type="1" id="8a5b9db3-92b5-4e2a-8508-3653325eb27a" class="numbered-list" start="5"><li>Clone the project into your chosen directory.</li></ol><ol type="1" id="5fbbd164-c401-41fe-93bf-1567734a52d0" class="numbered-list" start="6"><li>Navigate to the root of your new project.</li></ol><ol type="1" id="c37571ad-1bfb-4968-bb27-10f2a52aa2a9" class="numbered-list" start="7"><li>Make sure you have Docker running, open a new terminal and navigate to the <code>app </code>directory inside the project, all of the commands below are in that directory.</li></ol><ol type="1" id="b48421d2-7ae6-4117-8673-1ed7fc760c66" class="numbered-list" start="8"><li>In your terminal use the command <code>wasp start db</code> to start the database.<ol type="a" id="65fe6712-4d54-4538-b2ef-ad8fcf58601f" class="numbered-list" start="1"><li>Optional tip: Split your terminal and run both the above commands side by side. you can name the tab “DB” so you limit the amount of terminal windows</li></ol></li></ol><ol type="1" id="d78f15ac-7655-4e32-8a14-98c101273d97" class="numbered-list" start="9"><li>To initialize the database, open a new terminal tab and run <code>wasp db migrate-dev</code></li></ol><ol type="1" id="47bf49d5-f08f-47d9-a4f4-1457391c1765" class="numbered-list" start="10"><li>In a second terminal window use the command <code>wasp start</code> to start the front end</li></ol><ol type="1" id="0cda67f5-b22a-47e8-b32b-75a0df4bbc62" class="numbered-list" start="11"><li>Navigate to localhost: 3000 in your browser to see the app.<p id="59ab782f-5ce6-48af-ba7b-7a000f5732bf" class="">
+</p></li></ol></details></li></ul><h3 id="c18a2fd4-444a-4ff5-8695-0ce4aa11a953" class="">Running the app locally after the first time:</h3><ul id="cab48d19-9175-4433-8233-b7ccb9440af1" class="toggle"><li><details open=""><summary>Mac users:</summary><ol type="1" id="d7596d75-0e9f-41cf-bf48-c5810bec6316" class="numbered-list" start="1"><li>Make sure you have Docker running, open a new terminal and navigate to the <code>app </code>directory inside the project, all of the commands below are in that directory</li></ol><ol type="1" id="2ecaab1f-2eda-4dd9-882b-a21296449928" class="numbered-list" start="2"><li>In your terminal use the command <code>wasp start db</code> to start the database. Leave this terminal open and running. If you wish, you can also open another terminal and run the command <code>wasp db studio</code> to see or manage your DB via Prisma’s DB Studio GUI in a browser page.<ol type="a" id="4ccd75e3-4a82-49b2-b605-86dd61299c20" class="numbered-list" start="1"><li>Optional tip: Split your terminal and run both the above commands side by side. you can name the tab “DB” so you limit the amount of terminal windows</li></ol></li></ol><ol type="1" id="daa8a8e3-1f1b-4f4e-9004-6a450c41fd7b" class="numbered-list" start="3"><li>In a second terminal window in the same app directory, first initialize your database, if you haven’t already, by running the command <code>wasp db migrate-dev</code>.  This doesn’t need to be done every time, only if there hasn’t already been a migration done or if new data has been added to your database while the app wasn’t running.</li></ol><ol type="1" id="6eb5c545-f1af-4c20-8c3f-fdd1f92a1e99" class="numbered-list" start="4"><li>In another terminal window (or the same from #3) use the command <code>wasp start</code> to start the front end. This part might take a bit and will require that terminal stay open.</li></ol><ol type="1" id="e253c6d8-d3dc-48e5-b650-9326635e9c6c" class="numbered-list" start="5"><li>Navigate to localhost: 3000 in your browser to see the app.<p id="0cd8cdfa-12f9-4531-bde0-e255d6420d3d" class="">
+</p></li></ol></details></li></ul></div><div id="74069cad-0221-4d26-9ff3-a6115bc58956" style="width:100%" class="column"><ul id="14c234f3-f2f3-4a45-b897-7e59eeb29dd1" class="toggle"><li><details open=""><summary>Windows users:</summary><ol type="1" id="15d24be6-1937-4f2f-95b5-901025234823" class="numbered-list" start="1"><li>To set up wasp on your device please visit this link <a href="https://docs.opensaas.sh/start/getting-started/">Wasp</a></li></ol><ol type="1" id="e0e7ce43-6a3b-4b83-a188-4d1c814d769e" class="numbered-list" start="2"><li>Be sure to also set up <a href="https://wasp-lang.dev/blog/2023/11/21/guide-windows-development-wasp-wsl">WSL2</a></li></ol><ol type="1" id="49b1385e-f25c-4639-8892-e47f8fc94b5b" class="numbered-list" start="3"><li>Download and install <a href="https://www.docker.com/">Docker Desktop</a>; both WSL and Docker require a reboot after installation.</li></ol><ol type="1" id="f317ed24-048e-4a2c-b4d1-082cd914d388" class="numbered-list" start="4"><li>Make sure you have the most up to date version of <a href="https://github.com/nvm-sh/nvm">Node</a>, even though some of the wasp docs say to have a specific older version. That is outdated and as of March 2024, Wasp can handle the latest version of node.</li></ol><ol type="1" id="c251ef19-a3a0-44c6-8559-278ea6be8f37" class="numbered-list" start="5"><li>In your VS Code download the extension WSL. The <strong>WSL extension</strong> lets you use VS Code on Windows to build Linux applications that run on the <a href="https://docs.microsoft.com/en-us/windows/wsl">Windows Subsystem for Linux (WSL)</a>. <ol type="a" id="eaae05a7-a7f1-4789-961d-70b2e6f383cd" class="numbered-list" start="1"><li>Extension ID: ms-vscode-remote.remote-wsl</li></ol></li></ol><ol type="1" id="da058418-3242-4988-bb3d-e06b5148c4bd" class="numbered-list" start="6"><li>In your VS Code download the extension ‘Wasp’. This extension is the VS Code language extension for Wasp.<ol type="a" id="70ba2dcc-fd5a-46b8-904b-3cad8d11b86d" class="numbered-list" start="1"><li>Extension ID: wasp-lang.wasp </li></ol></li></ol><ol type="1" id="9fd7afd1-7783-420f-a038-6c9a68c9cd4c" class="numbered-list" start="7"><li>Using an ubuntu terminal, clone the project into your chosen directory. </li></ol><ol type="1" id="057d8cfe-978f-483f-8d00-5d13a9d8ab37" class="numbered-list" start="8"><li>Make sure you have Docker running and open a new ubuntu terminal and navigate to the <code>app </code>directory inside the project.</li></ol><ol type="1" id="8780fe68-6410-4446-9720-111bb170e2f9" class="numbered-list" start="9"><li>In your ubuntu terminal use the command ‘wasp start db’ to start the database. Leave this terminal open and running. If you wish, you can also open another ubuntu terminal and run the command <code>wasp db studio</code> to see or manage your DB via Prisma’s DB Studio GUI in a browser page.</li></ol><ol type="1" id="79320a68-1023-46c4-aded-88b3ab7cfebe" class="numbered-list" start="10"><li>In a second ubuntu terminal window in the same app directory, first initialize your database, if you haven’t already, by running the command <code>wasp db migrate-dev</code>. Next, use the command <code>wasp start</code> to start the front end. This part might take a bit.</li></ol><ol type="1" id="6ac9a9d3-a219-4c83-bcd7-4ff296b1e73f" class="numbered-list" start="11"><li>Navigate to localhost: 3000 in your browser to see the app.</li></ol><ol type="1" id="dd769e4e-e84f-4830-a0d3-a558d745305a" class="numbered-list" start="12"><li>NOTE: if you run into issues with docker suddenly not being found in your ubuntu terminal, try:<ol type="a" id="90d7aaaa-b7be-4ecd-b1b3-08f04110a4af" class="numbered-list" start="1"><li>right clicking on docker’s tray icon and choosing restart. or just restart the application</li></ol><ol type="a" id="9b6449c2-0495-4a87-ab8e-ec1c5d0f094d" class="numbered-list" start="2"><li>in your normal windows terminal, run the command: wsl --shutdown and then click ok on the prompt that opens up. Now you should be able to follow the steps above, though it might require closing all your ubuntu terminals and opening a new one.</li></ol></li></ol></details></li></ul><p id="a437b08f-e0ab-4d11-b445-0cd6eb324bd4" class="">
+</p><ul id="d19d255a-b593-4bae-911a-e29f15a7937b" class="toggle"><li><details open=""><summary>Windows users:</summary><ol type="1" id="c2530a22-c309-48b2-a5eb-323bacadf280" class="numbered-list" start="1"><li>Make sure you have Docker running and open a new ubuntu terminal and navigate to the <code>app </code>directory inside the project. The below commands should all run in this directory.</li></ol><ol type="1" id="55d04956-87bf-4954-9d6c-7ce9fa076dfb" class="numbered-list" start="2"><li>In your ubuntu terminal use the command <code>wasp start db</code> to start the database. Leave this terminal open and running. If you wish open another ubuntu terminal and run the command <code>wasp db studio</code> to see or manage your DB via Prisma’s DB Studio GUI in a browser page.<ol type="a" id="de0edca9-66e2-431a-965c-60c6b0f8d452" class="numbered-list" start="1"><li>Optional tip: Split your terminal and run both the above commands side by side. you can name the tab “DB” so you limit the amount of terminal windows</li></ol></li></ol><ol type="1" id="c566809a-9e17-442e-9fec-801eab4256d6" class="numbered-list" start="3"><li>In a second ubuntu terminal window in the same app directory, first initialize your database, if you haven’t already, by running the command <code>wasp db migrate-dev</code>. This doesn’t need to be done every time, only if there hasn’t already been a migration done or if new data has been added to your database while the app wasn’t running.</li></ol><ol type="1" id="5fc0632e-d771-4643-9b8a-73dfd851f1a4" class="numbered-list" start="4"><li>Next, In another terminal window (or the same from #3), use the command <code>wasp start</code> to start the front end. This part might take a bit and requires the terminal stay open.</li></ol><ol type="1" id="d52011fc-ffa8-4bba-a946-4169ea60ff17" class="numbered-list" start="5"><li>Navigate to localhost: 3000 in your browser to see the app.</li></ol><ol type="1" id="4f330a1b-cc6e-4c74-88c0-66ae2b0f7782" class="numbered-list" start="6"><li>NOTE: if you run into issues with docker suddenly not being found in your ubuntu terminal, try:<ol type="a" id="36b680e1-9212-4e35-a882-e0e845073d50" class="numbered-list" start="1"><li>right clicking on docker’s tray icon and choosing restart. or just restart the application</li></ol><ol type="a" id="0280932b-cdb7-48e9-856f-59197e68af0d" class="numbered-list" start="2"><li>in your normal windows terminal, run the command: wsl --shutdown and then click ok on the prompt that opens up. Now you should be able to follow the steps above, though it might require closing all your ubuntu terminals and opening a new one.</li></ol></li></ol><p id="fdc5b016-6018-4b00-9014-172202ef5167" class="">
+</p></details></li></ul></div></div><h1 id="19ba377e-83f8-46ad-83e9-6c59f41e576f" class="">How We Built This (Use Drop down arrows to see details)</h1><ul id="e6b543f9-390c-4a03-8a30-3a1ae0244ccc" class="toggle"><li><details open=""><summary>Getting to know Wasp</summary><p id="8704a1e4-f013-4944-9d2b-eed97e53be7d" class="">Wasp (Web Application Specification Programming/Language) is a powerful, developer-friendly domain-specific language (DSL) designed to streamline the process of building full-stack web applications. By abstracting away the complexity and boilerplate code typically associated with such projects, Wasp enables us developers to define the frontend, backend, and deployment aspects of our applications using a concise, readable syntax.</p><p id="7786dde7-4dc6-464a-aa82-614c361ecd43" class="">At its core, Wasp aims to bridge the gap between frontend and backend development, allowing developers to focus on the logic and functionality of our applications without getting bogged down in the intricacies of the technology stack. It supports key web development features out of the box, including authentication, database operations, and API integrations, making it an all-encompassing tool for rapidly bringing web applications from concept to production.</p><p id="16789d17-7736-4213-9fe5-f8eefc169068" class="">Wasp&#x27;s unique approach combines the simplicity of a high-level specification language with the power of modern web development frameworks and tools. By doing so, it not only accelerates the development process but also ensures that applications are scalable, maintainable, and ready for deployment. For more information on our experience and subjective opinions of wasp, check out our readme at the top of this documentation or the repo.</p></details></li></ul><div id="76abeb33-ed15-4007-9302-34a5282e7bcb" class="column-list"><div id="8c37ca41-db1c-4d0b-ade1-48371a17c3f5" style="width:33.33333333333333%" class="column"><h3 id="8212626e-b551-46b7-be9d-97d2b713dd79" class="">Frontend:</h3><ul id="84ecaaca-d9d9-4587-8a10-e7e30156d66c" class="toggle"><li><details open=""><summary>File Structure</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="0842ea9e-0e79-46be-a5f5-a5fd1f105223" class="code"><code class="language-Markdown">├── client
+│   ├── app
+│   |   ├──DemoAppPage.tsx
+│   ├── assets
+│   |   ├──backend.png
+│   |   ├──logo.png
+│   |   ├──test.png
+│   ├── auth
+│   |   ├──authWrapper.tsx
+│   |   ├──EmailVarification.tsx
+│   |   ├──LoginPage.tsx
+│   |   ├──PasswordReset.tsx
+│   |   ├──RequestPasswordReset.tsx
+│   |   ├──SignupPage.tsx
+│   ├── components
+│   |   ├──AddNote.jsx
+│   |   ├──LoginForm.jsx
+│   |   ├──Note.jsx
+│   |   ├──SignUpForm.jsx
+│   ├── hooks
+│   |   ├──useColorMode.tsx
+│   |   ├──useLocalStorage.tsx
+│   ├── pages
+│   |   ├──Home.jsx
+│   |   ├──Login.jsx
+│   |   ├──SignUp.jsx
+│   ├── static
+│   |   ├──avatar-placeholder.png
+│   |   ├──logo.png
+│   ├── test/app
+│   |   ├──DemoAppPage.spec.tsx
+├── App.tsx
+├── index.css
+├── Main.css</code></pre></details></li></ul><ul id="a9ad2741-d754-4831-b1ea-e5710b38fc9b" class="toggle"><li><details open=""><summary>Components</summary><ul id="63376139-3967-4574-bf3e-3c43c14ab390" class="toggle"><li><details open=""><summary>AddNote.jsx</summary><p id="4f6d300b-d166-48ea-8c30-a5fe142cd815" class="">The <code><strong>AddNote</strong></code> component is a React functional component designed to provide a user interface for adding a new note. It&#x27;s structured to accept props, manage user input, and trigger an action upon a button click</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="8e555071-efbc-43db-948e-7eded705ede6" class="code"><code class="language-JavaScript">function AddNote({note, setNote, createNote}) {
+  return (
+    &lt;div className=&quot;mt-32 ml-10 flex justify-center&quot;&gt;
+      &lt;input
+        placeholder=&quot;I need to remember...&quot;
+        className=&quot;rounded-lg p-6 text-black w-5/6&quot;
+        type=&quot;text&quot;
+        name=&quot;note&quot;
+        value={note}
+        onChange={(e) =&gt; setNote(e.target.value)}
+        style={{ height: &#x27;40px&#x27; }}
+      /&gt;
+      &lt;button className=&quot;ml-5&quot; onClick={() =&gt; createNote()}&gt;
+        Add
+      &lt;/button&gt;
+    &lt;/div&gt;
+  )
+}
+
+export default AddNote</code></pre><p id="729972e6-34f0-4b43-8c61-b13aa14b5f57" class=""><strong>Function Definition</strong>: <code>AddNote </code>is defined as a functional component that takes an object as its argument. This object destructures three props:</p><ul id="f526462d-9a9e-44f6-80b8-3fb548066aea" class="bulleted-list"><li style="list-style-type:disc"><code><strong>note</strong></code>: A string that represents the current value to be displayed in the input field.</li></ul><ul id="d8a9e9db-20bf-4e3e-8b22-2381c0f1562f" class="bulleted-list"><li style="list-style-type:disc"><code><strong>setNote</strong></code>: A function intended to update the state of <code><strong>note</strong></code> when a user types in the input field.</li></ul><ul id="47c0abbb-9504-495a-8bc5-8c157fba078d" class="bulleted-list"><li style="list-style-type:disc"><code><strong>createNote</strong></code>: A function to be called when a user clicks the &quot;Add&quot; button, to add a new note to a list of notes or send it to a backend server.</li></ul></details></li></ul><hr id="73a1d047-42f2-4f38-b52c-ced41a557d7c"/><ul id="c5223f64-f79c-400c-b916-1a34546aac5f" class="toggle"><li><details open=""><summary>LoginForm.jsx</summary><p id="5c54ced7-c390-45db-a109-b696c53249e3" class="">The <code><strong>LoginForm</strong></code> component is a React functional component designed to provide a user interface for a login form</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="8f33ddee-5010-4704-acb5-5d4c8a352fc3" class="code"><code class="language-JavaScript">function LoginForm({ username, password, setUsername, setPassword, authenticate, type }) {
+  return (
+    &lt;div className=&quot;flex flex-col items-center&quot;&gt;
+      &lt;input
+        className=&quot;p-4 rounded-lg&quot;
+        placeholder=&quot;Username&quot;
+        value={username}
+        onChange={(e) =&gt; setUsername(e.target.value)}
+      /&gt;
+
+      &lt;input
+        className=&quot;p-4 mt-5 rounded-lg&quot;
+        placeholder=&quot;Password&quot;
+        value={password}
+        onChange={(e) =&gt; setPassword(e.target.value)}
+      /&gt;
+
+      &lt;button
+        className=&quot;text-white mt-5&quot;
+        onClick={() =&gt; authenticate()}&gt;{type}
+      &lt;/button&gt;
+    &lt;/div&gt;
+  )
+}
+
+export default LoginForm</code></pre><ul id="5554ea03-1c76-4166-a1ee-41ffda3286b0" class="toggle"><li><details open=""><summary><strong>Props</strong>:</summary><ul id="78524cbe-9163-4f0d-9a9e-ca24e45adda3" class="bulleted-list"><li style="list-style-type:disc"><code><strong>username</strong></code>: A string representing the current value of the username input field.</li></ul><ul id="59b20385-d2f2-412e-b037-86b1a2ea4c04" class="bulleted-list"><li style="list-style-type:disc"><code><strong>password</strong></code>: A string representing the current value of the password input field.</li></ul><ul id="a118cbb6-9027-48bd-8e8e-f33c1fd88d0b" class="bulleted-list"><li style="list-style-type:disc"><code><strong>setUsername</strong></code>: A function to update the state of <code><strong>username</strong></code> when the user types in the username input field.</li></ul><ul id="5439d012-0fef-4fa6-a2a4-f5f3905601bc" class="bulleted-list"><li style="list-style-type:disc"><code><strong>setPassword</strong></code>: A function to update the state of <code><strong>password</strong></code> when the user types in the password input field.</li></ul><ul id="114b50ea-1cba-4c71-841a-8d1fc994ffb4" class="bulleted-list"><li style="list-style-type:disc"><code><strong>authenticate</strong></code>: A function intended to be called when the user submits the form, to verify the username and password.</li></ul><ul id="6235f26d-6b56-439a-9cea-f93e21b7ea2d" class="bulleted-list"><li style="list-style-type:disc"><code><strong>type</strong></code>: A string that determines the text displayed on the submit button, allowing for reuse of the form component for different purposes (e.g., &quot;Login&quot;, &quot;Sign Up&quot;).</li></ul></details></li></ul><ul id="b2e8162f-7dd3-4fd5-9a5f-b43bad63d46b" class="toggle"><li><details open=""><summary><strong>Functionality:</strong></summary><ul id="51556525-e30c-4716-9a54-634365a1a483" class="bulleted-list"><li style="list-style-type:disc"><strong>Controlled Components</strong>: Both input fields are controlled components, meaning React is in charge of their state. The inputs display values based on props and notify changes through event handlers, ensuring the component&#x27;s UI is always in sync with its state.</li></ul><ul id="324ed13e-6ce5-4814-b0bb-61985274d62a" class="bulleted-list"><li style="list-style-type:disc"><strong>Event Handling</strong>: The <code><strong>onChange</strong></code> handlers for the input fields ensure that the component&#x27;s state is updated with the user&#x27;s input, while the <code><strong>onClick</strong></code> handler for the button triggers authentication.</li></ul></details></li></ul></details></li></ul><hr id="86f6bd23-5fa7-426c-8331-478b721ccd78"/><ul id="9e11cc59-eba9-4bff-8ae4-a053e841d599" class="toggle"><li><details open=""><summary>Note.jsx</summary><p id="c6284ec4-250c-4ed9-b787-6d9b8c1cfdcf" class="">The <code><strong>Note</strong></code> component is a React functional component designed to display a note with options to edit, delete, and mark it as important.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="e57e4592-645f-4263-b959-e6ef80d0e744" class="code"><code class="language-JavaScript">import { useState } from &quot;react&quot;
+
+function Note({ id, date, content, important, editNote, deleteNote }) {
+  const [note, setNote] = useState(content)
+  const [editing, setEditing] = useState(false)
+  const [tooltip, setTooltip] = useState(false)
+
+  const updateNote = () =&gt; {
+    editNote(note, important, id)
+    setEditing(false)
+  }
+  const toggleImportant = () =&gt; {
+    editNote(note, !important, id)
+  }
+
+  return (
+    &lt;div className=&quot;note relative&quot; onMouseEnter={() =&gt; setTooltip(true)} onMouseLeave={() =&gt; setTooltip(false)}&gt;
+      {(
+        tooltip &amp;&amp; &lt;span className=&quot;delete hover:cursor-pointer absolute z-50 rounded-full bg-white text-black hover:bg-red-400 text-center flex justify-center items-center&quot; style={{right: &#x27;-5px&#x27;, top: &#x27;-10px&#x27;, width: &#x27;32px&#x27;, height: &#x27;32px&#x27;}} onClick={() =&gt; deleteNote(id)}&gt;🗑️&lt;/span&gt;
+      )}
+      
+      {(
+        tooltip &amp;&amp; &lt;span id=&quot;edit_button&quot; className=&quot;hover:cursor-pointer absolute z-50 rounded-full bg-white text-black hover:bg-green-500 text-center flex justify-center items-center&quot; style={{left: &#x27;-5px&#x27;, top: &#x27;-10px&#x27;, width: &#x27;32px&#x27;, height: &#x27;32px&#x27;}} onClick={() =&gt; setEditing(!editing)}&gt;✏️&lt;/span&gt;
+      )}
+      
+      {(
+        tooltip &amp;&amp; &lt;span id=&quot;pin_button&quot; className=&quot;hover:cursor-pointer absolute z-50 rounded-full bg-white text-black hover:bg-green-500 text-center flex justify-center items-center&quot; style={{left: &#x27;30px&#x27;, top: &#x27;-10px&#x27;, width: &#x27;32px&#x27;, height: &#x27;32px&#x27;, opacity: important ? &#x27;1&#x27; : &#x27;0.25&#x27;}} onClick={toggleImportant}&gt;📌&lt;/span&gt;
+
+      )}
+              
+      &lt;div className={`${important ? &#x27;bg-cyan-600&#x27; : &#x27;bg-slate-500&#x27;} aspect-h-1 aspect-w-1 w-68 h-32 overflow-hidden rounded-md  lg:aspect-none group-hover:opacity-75 p-5`}&gt;
+        {date}
+        &lt;br&gt;&lt;/br&gt;
+        {(editing ? &lt;input className=&quot;edit-input text-black font-bold border-0 outline-none&quot; value={note} onChange={(e) =&gt; setNote(e.target.value)}/&gt; : &lt;strong&gt;{content}&lt;/strong&gt; )}
+        {(editing &amp;&amp; &lt;div className=&quot;text-xl hover:cursor-pointer&quot;&gt;&lt;span onClick={() =&gt; setEditing(false)}&gt;✖️&lt;/span&gt; &lt;span onClick={() =&gt; updateNote()}&gt;✔️&lt;/span&gt;&lt;/div&gt;)}
+        
+      &lt;/div&gt;
+    
+    &lt;/div&gt;
+  )
+}
+
+export default Note</code></pre><p id="853e13a3-b372-4ec4-8e98-fcf63d33dd18" class=""><strong>useState Hook</strong>: The component uses the <code>useState</code>hook to manage its internal state. Three pieces of state are initialized:</p><ul id="999bd0e5-b565-4c48-8e05-9e1b1c522055" class="bulleted-list"><li style="list-style-type:disc"><code><strong>note</strong></code>: Holds the current content of the note, initially set to the <code><strong>content</strong></code> prop.</li></ul><ul id="61979519-6a0d-4abb-827e-f845aec60ec0" class="bulleted-list"><li style="list-style-type:disc"><code><strong>editing</strong></code>: A boolean flag indicating whether the note is in edit mode.</li></ul><ul id="865e7ff1-38e8-4bc5-aebb-7f593c9dbc56" class="bulleted-list"><li style="list-style-type:disc"><code><strong>tooltip</strong></code>: A boolean flag to show or hide the tooltip options (delete, edit, and pin)</li></ul></details></li></ul><hr id="c0894a5e-9d67-462e-9fc1-59f769b7ea0a"/><ul id="b3cffebd-a79d-44d6-b7fb-c45504c6c552" class="toggle"><li><details open=""><summary>SignupForm.jsx</summary><p id="4ff03a20-4b7a-403a-9bea-d5ea34a96f73" class="">The <code><strong>SignUpForm</strong></code> component is a React functional component designed for user registration, incorporating basic validation to ensure that the password and confirm password fields match.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="0667d353-1045-4b4a-ab8e-daa3a924cac7" class="code"><code class="language-JavaScript">import { useState, useEffect } from &#x27;react&#x27;
+
+function SignUpForm({ username, password, confirmPassword, setUsername, setPassword, setConfirmPassword, authenticate, type }) {
+  const [passwordMatchError, setPasswordMatchError] = useState(&#x27;&#x27;)
+
+  useEffect(() =&gt; {
+    if (password !== confirmPassword) {
+      setPasswordMatchError(&#x27;Passwords do not match&#x27;)
+    } else {
+      setPasswordMatchError(&#x27;&#x27;)
+    }
+  }, [password, confirmPassword])
+
+  return (
+    &lt;div className=&quot;flex flex-col items-center&quot;&gt;
+      &lt;input
+        className=&quot;p-4 rounded-lg&quot;
+        placeholder=&quot;Username&quot;
+        value={username}
+        onChange={(e) =&gt; setUsername(e.target.value)}
+      /&gt;
+
+      &lt;input
+        className=&quot;p-4 mt-5 rounded-lg&quot;
+        placeholder=&quot;Password&quot;
+        type=&quot;password&quot;
+        value={password}
+        onChange={(e) =&gt; {
+          setPassword(e.target.value)
+        }}
+      /&gt;
+
+      &lt;input
+        className=&quot;p-4 mt-5 rounded-lg&quot;
+        placeholder=&quot;Confirm password&quot;
+        type=&quot;password&quot;
+        value={confirmPassword}
+        onChange={(e) =&gt; {
+          setConfirmPassword(e.target.value)
+        }}
+      /&gt;
+
+      {passwordMatchError &amp;&amp; &lt;p className=&quot;text-red-500 mt-3&quot;&gt;{passwordMatchError}&lt;/p&gt;}
+
+      &lt;button
+        className=&quot;text-white mt-5&quot;
+        onClick={() =&gt; {
+          if (!passwordMatchError) {
+            authenticate()
+          }
+        }}&gt;
+        {type}
+      &lt;/button&gt;
+    &lt;/div&gt;
+  )
+}
+
+export default SignUpForm</code></pre><ul id="e7b666a7-932f-4772-87d9-98ef7eee59c3" class="toggle"><li><details open=""><summary>Imported React Hooks:</summary><ul id="4ee1c62c-8ae9-4f70-b0b4-68254e505193" class="bulleted-list"><li style="list-style-type:disc"><strong>useState</strong>: Used to declare state variables in functional components.</li></ul><ul id="2caab0dd-13cf-483b-9b16-0b1f46a7b4cf" class="bulleted-list"><li style="list-style-type:disc"><strong>useEffect</strong>: Used to perform side effects in functional components, such as running code in response to state changes</li></ul></details></li></ul><ul id="0c2e9290-d231-4adb-a863-2e3086bf3fc1" class="toggle"><li><details open=""><summary>Props:</summary><ul id="25157077-91de-43bf-85df-869158eedc4c" class="bulleted-list"><li style="list-style-type:disc">The component accepts several props, including <code><strong>username</strong></code>, <code><strong>password</strong></code>, and <code><strong>confirmPassword</strong></code> for holding form values, <code><strong>setUsername</strong></code>, <code><strong>setPassword</strong></code>, and <code><strong>setConfirmPassword</strong></code> for updating these values, <code><strong>authenticate</strong></code> as a function to handle form submission, and <code><strong>type</strong></code> to customize the button text, allowing for reuse of the form component.<br/><br/></li></ul></details></li></ul><ul id="968ab09c-fe2a-4c5e-b5d4-7ab376e1e293" class="toggle"><li><details open=""><summary>State:</summary><ul id="8e19211f-042c-4a2e-a984-f622c119a825" class="bulleted-list"><li style="list-style-type:disc">A state variable <code><strong>passwordMatchError</strong></code> is used to store a message indicating whether the passwords match. It&#x27;s initially an empty string, indicating no error</li></ul><p id="780b421e-ab7a-45ed-9206-7dc544a2e20f" class="">useEffect Hook:</p><ul id="9c9ea1e7-30d4-4c74-a560-ce72ddcdffb0" class="bulleted-list"><li style="list-style-type:disc">This effect runs whenever <code><strong>password</strong></code> or <code><strong>confirmPassword</strong></code> changes. It sets <code><strong>passwordMatchError</strong></code> to a non-empty string if the passwords don&#x27;t match, which will be used to display an error message to the user.</li></ul></details></li></ul><ul id="903a2e2b-aaa3-4c54-a272-95a21be7f6bd" class="toggle"><li><details open=""><summary>Conditional Rendering:</summary><p id="89209b5a-423a-4173-8478-259212ae8261" class=""><code>{passwordMatchError &amp;&amp; &lt;p className=&quot;text-red-500 mt-3&quot;&gt;{passwordMatchError}&lt;/p&gt;}</code></p><ul id="ac310f51-6b08-43c4-a89f-a8ab2d3d2ac9" class="bulleted-list"><li style="list-style-type:disc">This line conditionally renders an error message if <code><strong>passwordMatchError</strong></code> is not an empty string</li></ul></details></li></ul><ul id="f7d752a5-e455-4b66-9bfe-82e9b6eb4a01" class="toggle"><li><details open=""><summary>Form submission button:</summary><ul id="2c3f79cd-b1eb-41b9-bb72-5653b12f5719" class="bulleted-list"><li style="list-style-type:disc">The submission button triggers the <code><strong>authenticate</strong></code> function passed as a prop when clicked, but only if there is no password mismatch error. The button&#x27;s text is determined by the <code><strong>type</strong></code> prop.<br/><br/><br/><br/><br/></li></ul></details></li></ul><p id="ae8a6739-c0bd-42b1-ac0a-6ab4256c364a" class="">
+</p></details></li></ul></details></li></ul><ul id="f2118259-44c7-4cf6-b0f4-014237abd27e" class="toggle"><li><details open=""><summary>Pages</summary><ul id="532f3ace-e3a3-428e-a389-46ae323b3a4b" class="toggle"><li><details open=""><summary>Login Page</summary><p id="da8a3c05-494e-4ce1-b016-04d5db3054c1" class="">The <code><strong>Login</strong></code> page is a React component designed for user authentication</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="5864f782-2f62-419f-8040-a9542694bec5" class="code"><code class="language-JavaScript">import &#x27;../index.css&#x27;;
+import logo from &#x27;../assets/logo.png&#x27;;
+import { useNavigate, Link } from &#x27;react-router-dom&#x27;;
+import LoginForm from &#x27;../components/LoginForm&#x27;;
+import { useState } from &#x27;react&#x27;;
+import axios from &#x27;axios&#x27;;
+
+function Login() {
+  const [username, setUsername] = useState(&#x27;&#x27;);
+  const [password, setPassword] = useState(&#x27;&#x27;);
+  const navigate = useNavigate();
+
+  const authenticate = () =&gt; {
+    const credentials = {
+      username: username,
+      password: password,
+    };
+
+    axios.post(&#x27;http://localhost:8420/v1/login&#x27;, credentials).then((resp) =&gt; {
+      console.log(resp);
+      if (resp.status == 200) {
+        localStorage.setItem(&#x27;token&#x27;, resp.data.token);
+        navigate(&#x27;/home&#x27;);
+      }
+    });
+  };
+
+  return (
+    &lt;div className=&#x27;flex items-center flex-col&#x27;&gt;
+      &lt;img className=&#x27;size-1/2 object-contain&#x27; src={logo} /&gt;
+
+      &lt;LoginForm
+        username={username}
+        password={password}
+        setPassword={setPassword}
+        setUsername={setUsername}
+        authenticate={authenticate}
+        type=&#x27;Login&#x27;
+      /&gt;
+
+      &lt;p className=&#x27;mt-3&#x27;&gt;
+        Don&#x27;t have an account yet?
+        &lt;strong&gt;
+          &lt;Link to=&#x27;/signup&#x27;&gt; Sign up here&lt;/Link&gt;
+        &lt;/strong&gt;
+        .
+      &lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default Login;</code></pre></details></li></ul><hr id="0ffa0d71-19dd-4ac3-b1d3-59293c31f25a"/><ul id="566c67bd-8ced-43e3-968c-c0392d0463cf" class="toggle"><li><details open=""><summary>Signup Page</summary><p id="a2fe1880-fd6f-4cde-a69c-cb7726a76ee2" class="">The <code><strong>SignUp</strong></code> page is a React component designed for handling the user registration process.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="4b413e5f-585a-472f-8209-1e92e0372ffb" class="code"><code class="language-JavaScript">import &#x27;../index.css&#x27;;
+import logo from &#x27;../assets/logo.png&#x27;;
+import { useNavigate, Link } from &#x27;react-router-dom&#x27;;
+import SignUpForm from &#x27;../components/SignUpForm&#x27;;
+import { useState } from &#x27;react&#x27;;
+import axios from &#x27;axios&#x27;;
+
+function SignUp() {
+  const [username, setUsername] = useState(&#x27;&#x27;);
+  const [password, setPassword] = useState(&#x27;&#x27;);
+  const [confirmPassword, setConfirmPassword] = useState(&#x27;&#x27;);
+  const navigate = useNavigate();
+
+  const authenticate = () =&gt; {
+    const credentials = {
+      username: username,
+      password: password,
+    };
+
+    axios.post(&#x27;http://localhost:8420/v1/users&#x27;, credentials).then((resp) =&gt; {
+      console.log(resp);
+      if (resp.status == 201) {
+        navigate(&#x27;/login&#x27;);
+      }
+    });
+  };
+
+  return (
+    &lt;div className=&#x27;flex items-center flex-col&#x27;&gt;
+      &lt;img className=&#x27;size-1/2 object-contain&#x27; src={logo} /&gt;
+
+      &lt;SignUpForm
+        username={username}
+        password={password}
+        confirmPassword={confirmPassword}
+        setPassword={setPassword}
+        setUsername={setUsername}
+        setConfirmPassword={setConfirmPassword}
+        authenticate={authenticate}
+        type=&#x27;Sign Up&#x27;
+      /&gt;
+
+      &lt;p className=&#x27;mt-3&#x27;&gt;
+        Already have an account?
+        &lt;strong&gt;
+          &lt;Link to=&#x27;/login&#x27;&gt; Sign in here&lt;/Link&gt;
+        &lt;/strong&gt;
+        .
+      &lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default SignUp;</code></pre></details></li></ul><hr id="03d834a8-47f8-46f0-bd56-816ae4987fc4"/><ul id="b3cb7d58-ef12-4344-9621-1bd977d41a86" class="toggle"><li><details open=""><summary>Home Page</summary><p id="a105f193-d48f-4a68-9106-430b4dbf8f69" class="">The <code><strong>Home</strong></code> component is a React functional component designed to display the note-taking application&#x27;s main interface</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="c732abb6-29b1-4dba-a232-306ba857d38e" class="code"><code class="language-JavaScript">import { useEffect, useState } from &#x27;react&#x27;;
+import logo from &#x27;../assets/logo.png&#x27;;
+import AddNote from &#x27;../components/AddNote&#x27;;
+import axios from &#x27;axios&#x27;;
+import Note from &#x27;../components/Note&#x27;;
+
+function Home() {
+  const [note, setNote] = useState(&#x27;&#x27;);
+  const [notes, setNotes] = useState([]);
+
+  useEffect(() =&gt; {
+    getNotes();
+  }, []);
+
+  const getNotes = () =&gt; {
+    axios.get(&#x27;http://localhost:8420/v1/notes&#x27;).then((resp) =&gt; {
+      const { data } = resp;
+
+      const importantNotes = data.filter((d) =&gt; d.important);
+      const notImportantNotes = data.filter((d) =&gt; !d.important);
+
+      setNotes([...importantNotes, ...notImportantNotes]);
+      console.log(data);
+    });
+  };
+
+  const createNote = () =&gt; {
+    if (note == &#x27;&#x27;) {
+      return;
+    }
+
+    const noteObj = {
+      content: note,
+      important: false,
+    };
+
+    const headers = { Authorization: &#x27;Bearer &#x27; + localStorage.token };
+
+    axios.post(&#x27;http://localhost:8420/v1/notes&#x27;, noteObj, { headers }).then((resp) =&gt; {
+      console.log(resp);
+      getNotes();
+    });
+
+    setNote(&#x27;&#x27;);
+  };
+
+  const deleteNote = (id) =&gt; {
+    console.log(&#x27;delete&#x27;);
+    axios.delete(&#x27;http://localhost:8420/v1/notes/&#x27; + id).then((resp) =&gt; {
+      console.log(resp);
+      getNotes();
+    });
+  };
+
+  const editNote = (newNote, important, id) =&gt; {
+    console.log(&#x27;edit&#x27;);
+
+    const noteObj = {
+      content: newNote,
+      important: important,
+    };
+
+    axios.put(&#x27;http://localhost:8420/v1/notes/&#x27; + id, noteObj).then((resp) =&gt; {
+      console.log(resp);
+      getNotes();
+    });
+  };
+
+  return (
+    &lt;div
+      data-testid=&#x27;home-component&#x27;
+      className=&#x27;container&#x27;
+      style={{ minWidth: &#x27;100vw&#x27;, minHeight: &#x27;100vh&#x27;, padding: &#x27;20px&#x27; }}
+    &gt;
+      &lt;img className=&#x27;logo fixed size-40 left-5 top-0 object-contain&#x27; src={logo} alt=&#x27;logo&#x27; /&gt;
+
+      &lt;AddNote notes={notes} note={note} setNote={setNote} createNote={createNote} /&gt;
+
+      &lt;div className=&#x27;grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8&#x27;&gt;
+        {notes.map((n) =&gt; (
+          &lt;Note
+            id={n.id}
+            key={n.id}
+            date={new Date(n.createdAt).toLocaleString()}
+            content={n.content}
+            important={n.important}
+            editNote={editNote}
+            deleteNote={deleteNote}
+          /&gt;
+        ))}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default Home;</code></pre></details></li></ul></details></li></ul><p id="fe5f27ef-6ecf-44fb-beef-f4d40d204c43" class="">
+</p></div><div id="65fc553f-f1c2-4df3-8992-b91db7e28293" style="width:33.33333333333333%" class="column"><h3 id="995aafb8-9daa-48d2-aae6-0ddd7e23efb5" class="">Wasp:</h3><ul id="2ed4c3d5-fdb4-4e19-8f26-c0e1134f4ca3" class="toggle"><li><details open=""><summary>main.wasp</summary><p id="419034f5-2448-44a8-8677-e9734a91ecdf" class="">This file serves as the central configuration or specification file for our entire application, encompassing both frontend and backend aspects. <div class="indented"><p id="d2028544-4dc7-4980-aa41-7a5a641909cf" class="">(Wasp is designed to abstract away the complexity of full-stack development, allowing developers to define an application&#x27;s functionality using a high-level declarative syntax.)</p></div></p><p id="8c86c58c-7fab-4b84-999c-3213b8cd2a3b" class="">This snippet is a configuration for Wasp.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="8a69eb28-260a-42de-964d-e1cfe0afc1f3" class="code"><code class="language-JavaScript">app OpenSaaS {
+  wasp: {
+    version: &quot;^0.12.0&quot;
+  },
+  title: &quot;Notes App&quot;,
+  head: [
+        &quot;&lt;meta property=&#x27;og:type&#x27; content=&#x27;website&#x27; /&gt;&quot;,
+        &quot;&lt;meta property=&#x27;og:title&#x27; content=&#x27;My Open SaaS App&#x27; /&gt;&quot;,
+        &quot;&lt;meta property=&#x27;og:url&#x27; content=&#x27;https://opensaas.sh&#x27; /&gt;&quot;, 
+        &quot;&lt;meta property=&#x27;og:description&#x27; content=&#x27;I made a SaaS App. Buy my stuff.&#x27; /&gt;&quot;,
+        &quot;&lt;meta property=&#x27;og:image&#x27; content=&#x27;https://opensaas.sh/public-banner.png&#x27; /&gt;&quot;,
+        &quot;&lt;meta name=&#x27;twitter:image&#x27; content=&#x27;https://opensaas.sh/public-banner.png&#x27; /&gt;&quot;, 
+        &quot;&lt;meta name=&#x27;twitter:image:width&#x27; content=&#x27;800&#x27; /&gt;&quot;,
+        &quot;&lt;meta name=&#x27;twitter:image:height&#x27; content=&#x27;400&#x27; /&gt;&quot;,
+        &quot;&lt;meta name=&#x27;twitter:card&#x27; content=&#x27;summary_large_image&#x27; /&gt;&quot;,
+        // you can put your analytics scripts here
+        &quot;&lt;script defer data-domain=&#x27;&lt;your-site-id&gt;&#x27; src=&#x27;https://plausible.io/js/script.js&#x27;&gt;&lt;/script&gt;&quot;,
+        // plausible has script extension `script.local.js` for local development
+        &quot;&lt;script defer data-domain=&#x27;&lt;your-site-id&gt;&#x27; src=&#x27;https://plausible.io/js/script.local.js&#x27;&gt;&lt;/script&gt;&quot;,
+        // google analytics only needs one script and will automatically detect if you are in dev mode 
+        &quot;&lt;!-- Google tag (gtag.js) --&gt;&lt;script&gt;...&lt;/script&gt;&quot;
+  ],
+  // 🔐 Auth out of the box! https://wasp-lang.dev/docs/auth/overview
+  auth: {
+    userEntity: User,
+    methods: {
+      usernameAndPassword: { // !IMPORTANT: this method is only suitable for dev/testing. Use social or email methods in production.
+        userSignupFields: import { getUsernameAndPasswordUserFields } from &quot;@src/server/auth/setUsername.js&quot;,
+      },
+      
+    },
+    onAuthFailedRedirectTo: &quot;/login&quot;,
+    onAuthSucceededRedirectTo: &quot;/demo-app&quot;,
+  },
+  db: { 
+    system: PostgreSQL,
+    seeds: [
+      import { devSeedUsers } from &quot;@src/server/scripts/usersSeed.js&quot;,
+    ]
+  },
+  client: {
+    rootComponent: import App from &quot;@src/client/App&quot;,
+  },
+  emailSender: {
+    provider: SendGrid,
+    defaultFrom: {
+      name: &quot;Open SaaS App&quot;,
+      // make sure this address is the same you registered your SendGrid or MailGun account with!
+      email: &quot;me@example.com&quot; 
+    },
+  },
+}</code></pre><h3 id="8269ea92-ee6d-4394-b993-17b2234ef6a8" class=""><strong>Wasp Configuration</strong></h3><ul id="065453cf-61af-45e5-850c-3e7d6ab8db25" class="bulleted-list"><li style="list-style-type:disc"><code><strong>wasp</strong></code>: Specifies the version of Wasp being used (<code><strong>&quot;^0.12.0&quot;</strong></code>), ensuring compatibility and feature availability.</li></ul><h3 id="4f553dc2-6a01-418f-a772-55684eade08c" class=""><strong>Application Metadata</strong></h3><ul id="9774ad44-c7e6-4392-ac7d-198dbaa424c7" class="bulleted-list"><li style="list-style-type:disc"><code><strong>title</strong></code>: Sets the application&#x27;s title to &quot;Notes App&quot;.</li></ul><ul id="212a445a-a53e-4e86-82d4-805edb59b485" class="bulleted-list"><li style="list-style-type:disc"><code><strong>head</strong></code>: Contains HTML elements to be included in the <code><strong>&lt;head&gt;</strong></code> section of the HTML document. This includes meta tags for SEO and social media platforms (Open Graph for Facebook and cards for Twitter), as well as scripts for analytics (like Plausible and Google Analytics). These tags help improve the visibility and shareability of the app on the web.</li></ul><h3 id="8770cf02-2b8a-48d1-b5a4-6a29e22b3296" class=""><strong>Authentication</strong></h3><ul id="0c63e7ee-dc9f-4478-b2ad-85c0b42fc137" class="bulleted-list"><li style="list-style-type:disc"><code><strong>auth</strong></code>: Configures authentication for the application. It specifies:<ul id="a27ac5e9-e895-4dce-8da5-c67b77fd3f9b" class="bulleted-list"><li style="list-style-type:circle">The <code><strong>userEntity</strong></code> as <code><strong>User</strong></code>, indicating the entity that represents users in the application.</li></ul><ul id="4efe2e9f-624b-41b4-ab1b-841737bb5f33" class="bulleted-list"><li style="list-style-type:circle">Authentication <code><strong>methods</strong></code>, including a username and password method for development/testing. It&#x27;s noted that this method should be replaced with more secure methods (like social login or email) in production.</li></ul><ul id="88c51430-e998-4599-8602-bca6ce37ff72" class="bulleted-list"><li style="list-style-type:circle">Redirection URLs for authentication success (<code><strong>onAuthSucceededRedirectTo</strong></code>) and failure (<code><strong>onAuthFailedRedirectTo</strong></code>).</li></ul></li></ul><h3 id="ab959541-849a-40c9-9e8e-7ceed51ea50b" class=""><strong>Database Configuration</strong></h3><ul id="2f1815a2-f2f9-4369-a312-66865744b422" class="bulleted-list"><li style="list-style-type:disc"><code><strong>db</strong></code>:<ul id="5d6ad61b-aff5-4fc6-9452-3664eb8759fe" class="bulleted-list"><li style="list-style-type:circle">Sets the database <code><strong>system</strong></code> to PostgreSQL.</li></ul><ul id="fcbd0afc-18c5-42e7-83d5-39fcd58dceca" class="bulleted-list"><li style="list-style-type:circle">Specifies <code><strong>seeds</strong></code> for the database, allowing for initial data to be loaded during development.</li></ul></li></ul><h3 id="75f040e5-87e4-4974-9ab9-f42f5f5fcfca" class=""><strong>Client-Side Configuration</strong></h3><ul id="61316fbe-b2c6-4265-854d-c64665fb001a" class="bulleted-list"><li style="list-style-type:disc"><code><strong>client</strong></code>: Defines the root React component (<code><strong>App</strong></code>) for the frontend of the application.</li></ul><h3 id="0e1bfc27-0c19-40ec-9388-e6d36cc58158" class=""><strong>Email Sending Configuration</strong></h3><ul id="09f95ff2-fa97-49b0-ae34-37b44b0553d5" class="bulleted-list"><li style="list-style-type:disc"><code><strong>emailSender</strong></code>: Configures email sending capabilities using SendGrid as the provider. It includes a default &quot;from&quot; email address and name, which should match the account details used with SendGrid.</li></ul></details></li></ul><ul id="53e1b905-e39d-4858-980c-78cbeee4fab6" class="toggle"><li><details open=""><summary>Database structure  (main.wasp)</summary><p id="3728ff32-5631-4c3d-9e60-0a8ead1199b5" class="">This section of code defines the structure of the database and what kind of data will exist inside it.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="e0ad45ef-ad34-414c-8c4d-a0608513cf54" class="code"><code class="language-JavaScript">/* 💽 Wasp defines DB entities via Prisma Database Models: 
+ * https://wasp-lang.dev/docs/data-model/entities
+ */
+
+entity User {=psl
+  id                        Int             @id @default(autoincrement())
+  email                     String?         @unique
+  username                  String?         @unique
+  createdAt                 DateTime        @default(now())
+  lastActiveTimestamp       DateTime        @default(now())
+  isAdmin                   Boolean         @default(false)
+  stripeId                  String? 
+  checkoutSessionId         String?
+  hasPaid                   Boolean         @default(false)
+  subscriptionTier          String?
+  subscriptionStatus        String?
+  sendEmail                 Boolean         @default(false)
+  datePaid                  DateTime?
+  credits                   Int             @default(3)
+  gptResponses              GptResponse[]
+  contactFormMessages       ContactFormMessage[]     
+  tasks                     Task[]
+  files                     File[]
+psl=}</code></pre></details></li></ul><ul id="18560dd5-ddd5-40ed-b841-97d967930c86" class="toggle"><li><details open=""><summary>Routes  (main.wasp)</summary><p id="5abe6dbb-2b2b-44bf-b836-d7aa30ee1df2" class="">This section of the wasp file defines the apps routes. </p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="58fa1940-c2e8-43a6-8a98-21547536f8d8" class="code"><code class="language-JavaScript">route LandingPageRoute { path: &quot;/&quot;, to: LandingPage }
+page LandingPage {
+  component: import LandingPage from &quot;@src/client/landing-page/LandingPage&quot;
+}
+
+route LoginRoute { path: &quot;/login&quot;, to: LoginPage }
+page LoginPage {
+  component: import Login from &quot;@src/client/auth/LoginPage&quot;
+}
+
+route SignupRoute { path: &quot;/signup&quot;, to: SignupPage }
+page SignupPage {
+  component: import { Signup } from &quot;@src/client/auth/SignupPage&quot;
+}
+
+
+
+route DemoAppRoute { path: &quot;/demo-app&quot;, to: DemoAppPage }
+page DemoAppPage {
+  authRequired: true,
+  component: import DemoAppPage from &quot;@src/client/app/DemoAppPage&quot;
+}</code></pre><p id="31df1e84-4811-49cb-8096-e5043f47cde8" class="">For example let’s break down the first route above:</p><ul id="c17e2a3b-dfc1-482e-a504-8c1fafc1d920" class="bulleted-list"><li style="list-style-type:disc"><code><strong>route</strong></code>: This keyword starts the definition of a route in the Wasp app.</li></ul><ul id="e50540bc-e160-468f-bbe1-5d80367bd1bb" class="bulleted-list"><li style="list-style-type:disc"><code><strong>LandingPageRoute</strong></code>: This is the name we have given to the route. It&#x27;s a unique identifier within the Wasp project for this specific route.</li></ul><ul id="5e8ed221-d149-4c11-9b3c-eeebdc98daa4" class="bulleted-list"><li style="list-style-type:disc"><code><strong>path: &quot;/&quot;</strong></code>: The <code><strong>path</strong></code> property specifies the URL path that triggers this route. The <code><strong>/</strong></code> denotes the root of the site, meaning this route is what users will be directed to when they visit the base URL of this application.</li></ul><ul id="6746c8b7-ba71-41f4-bf15-acaa0956ba63" class="bulleted-list"><li style="list-style-type:disc"><code><strong>to: LandingPage</strong></code>: The <code><strong>to</strong></code> property links this route to a page within the Wasp app, identified here as <code><strong>LandingPage</strong></code>. This tells Wasp which page to render when the route is accessed.</li></ul></details></li></ul><ul id="43abcf29-7912-44c3-92db-35148f4f68d9" class="toggle"><li><details open=""><summary>Responses (main.wasp)</summary><p id="0f07ab58-d061-4478-bb43-7b46846e8803" class="">This code snippet defines the entity <code><strong>Task</strong></code> using Prisma Schema Language (PSL), which is part of Prisma, an open-source database toolkit. This entity is essentially a model that represents a table in our database, and each field within an entity represents a column in the table. </p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9c4531e1-bd1f-4092-b890-0b6c79d246f5" class="code"><code class="language-JavaScript">entity Task {=psl
+  id                        String          @id @default(uuid())
+  description               String
+  time                      String          @default(&quot;1&quot;)
+  isDone                    Boolean         @default(false)
+  user                      User            @relation(fields: [userId], references: [id])
+  userId                    Int
+  createdAt                 DateTime        @default(now())
+psl=}</code></pre><h3 id="f7ff0a18-9cc5-48e7-b86f-d2845dc02a5c" class="">Task Entity</h3><ul id="f1eb778d-2a79-4014-bfef-aff7619a3cd4" class="bulleted-list"><li style="list-style-type:disc">Represents a table for storing tasks.</li></ul><ul id="057036fa-49b2-41e3-afc2-e915aa5822eb" class="bulleted-list"><li style="list-style-type:disc"><strong>Fields</strong>:<ul id="31d8ada1-a052-4210-810d-1cd69d0f109c" class="bulleted-list"><li style="list-style-type:circle"><code><strong>id</strong></code>: A unique identifier for each task.</li></ul><ul id="d254244e-f1a1-434e-b4a3-bb73469a33c2" class="bulleted-list"><li style="list-style-type:circle"><code><strong>description</strong></code>: A description of the task.</li></ul><ul id="f1285f5c-bfe4-4448-8f32-8166d047bcb6" class="bulleted-list"><li style="list-style-type:circle"><code><strong>time</strong></code>: A string field, with a default value of &quot;1&quot;, which could represent an estimated time to complete the task or a due time.</li></ul><ul id="d337d0a3-709f-4e75-b3a2-95c960ebe7e5" class="bulleted-list"><li style="list-style-type:circle"><code><strong>isDone</strong></code>: A boolean indicating whether the task has been completed, defaulting to <code><strong>false</strong></code>.</li></ul><ul id="acf0709b-ec46-42b4-b046-a3f4bb6c2458" class="bulleted-list"><li style="list-style-type:circle"><code><strong>user</strong></code>: Links to a <code><strong>User</strong></code> entity to show ownership of the task.</li></ul><ul id="6e4b1c3a-1cf5-454c-b822-9b1e9c3edc3a" class="bulleted-list"><li style="list-style-type:circle"><code><strong>userId</strong></code>: The ID of the user who owns the task.</li></ul><ul id="9cf89bdd-f9d7-4c05-b7f8-1cd9b4fd6bc7" class="bulleted-list"><li style="list-style-type:circle"><code><strong>createdAt</strong></code>: When the task was created.</li></ul></li></ul></details></li></ul><ul id="5ef99e54-3f41-4843-962e-495f98789547" class="toggle"><li><details open=""><summary>Actions  (main.wasp)</summary><p id="4b617e06-a268-4573-93ac-57bebecdae60" class="">This code snippet defines three &quot;actions&quot; in our Wasp project. Actions in Wasp are operations that allow for interaction between the client (frontend) and the server (backend), specifically for creating, updating, or deleting data.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="5cbb80f1-006b-4e24-9df8-3a66719ca17a" class="code"><code class="language-JavaScript">/* ⛑ These are the Wasp Operations, which allow the client and server to interact:
+ * https://wasp-lang.dev/docs/data-model/operations/overview
+ */
+
+// 📝 Actions
+
+action createTask {
+  fn: import { createTask } from &quot;@src/server/actions.js&quot;,
+  entities: [Task]
+}
+
+action deleteTask {
+  fn: import { deleteTask } from &quot;@src/server/actions.js&quot;,
+  entities: [Task]
+}
+
+action updateTask {
+  fn: import { updateTask } from &quot;@src/server/actions.js&quot;,
+  entities: [Task]
+}</code></pre><p id="09a8776e-9878-46a7-aadb-de99e05e11d7" class="">Each action in Wasp has a similar structure, which includes:</p><ul id="c469efde-bbb7-4484-a4dd-8883c9614517" class="bulleted-list"><li style="list-style-type:disc">The <code><strong>action</strong></code> keyword to start the definition.</li></ul><ul id="3fe7ee7f-f12c-4550-9d55-79766948e819" class="bulleted-list"><li style="list-style-type:disc">A unique name for the action (<code><strong>createTask</strong></code>, <code><strong>deleteTask</strong></code>, <code><strong>updateTask</strong></code>).</li></ul><ul id="b4b4d0ac-d5fc-4e67-b132-d45ff0c05e56" class="bulleted-list"><li style="list-style-type:disc">A function (<code><strong>fn</strong></code>) that points to the actual implementation of the action.</li></ul><ul id="8eaf00fe-6e8d-4f88-8bf9-7d6bb8059035" class="bulleted-list"><li style="list-style-type:disc">The <code><strong>entities</strong></code> that the action interacts with.</li></ul><h3 id="68eeed1d-7206-444a-bb1f-a1a8b325c1cc" class=""><strong>Specific Actions Explained</strong></h3><ul id="28c6ed52-195e-480f-8064-a8e26095d8e7" class="toggle"><li><details open=""><summary>createTask Action</summary><ul id="5e4c5241-1e04-462e-96fd-8763fbb3ed69" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose</strong>: Creates a new task.</li></ul><ul id="d0f0481c-4696-4f6c-9787-6b993ebbd44e" class="bulleted-list"><li style="list-style-type:disc"><strong>Function Import</strong>: <code><strong>import { createTask } from &quot;@src/server/actions.js&quot;</strong></code> tells Wasp where to find the JavaScript function that implements the action logic. The <code><strong>createTask</strong></code> function is expected to handle the creation of a new task, including saving it to the database.</li></ul><ul id="9d12c2d4-cc7f-456a-bae9-88278181fccd" class="bulleted-list"><li style="list-style-type:disc"><strong>Entities</strong>: <code><strong>[Task]</strong></code> indicates that this action interacts with the <code><strong>Task</strong></code> entity. This means the action likely involves creating a new record in the database table or collection associated with tasks.</li></ul></details></li></ul><hr id="4544a122-93b0-4bb3-a85a-bf8cb2b83322"/><ul id="1a644341-3eab-4fa9-8038-7f05b242af7a" class="toggle"><li><details open=""><summary>deleteTask Action</summary><ul id="20a463e9-8d60-47d8-8876-41276944998b" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose</strong>: Deletes an existing task.</li></ul><ul id="d9608d48-496c-419e-af6b-8b84a606cd04" class="bulleted-list"><li style="list-style-type:disc"><strong>Function Import</strong>: <code><strong>import { deleteTask } from &quot;@src/server/actions.js&quot;</strong></code> points to the function responsible for deleting a task. The <code><strong>deleteTask</strong></code> function should handle the removal of a task record from the database based on some identifier (e.g., a task ID).</li></ul><ul id="055f2036-308d-4839-bc6a-84b5b298f83d" class="bulleted-list"><li style="list-style-type:disc"><strong>Entities</strong>: <code><strong>[Task]</strong></code> shows that this action also interacts with the <code><strong>Task</strong></code> entity, specifically to delete a task record.</li></ul></details></li></ul><hr id="c5b02625-9b33-4788-8cde-1b8f883a81ff"/><ul id="4d4f7a77-1736-46fe-bad4-da66fa4c779b" class="toggle"><li><details open=""><summary>updateTask Action</summary><ul id="4d224c43-8290-4209-9282-d45c0b2f9a1b" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose</strong>: Updates an existing task.</li></ul><ul id="d7ccc023-2ec3-46b6-a550-4933cdee0ffa" class="bulleted-list"><li style="list-style-type:disc"><strong>Function Import</strong>: <code><strong>import { updateTask } from &quot;@src/server/actions.js&quot;</strong></code> indicates the function that carries out the task update operation. The <code><strong>updateTask</strong></code> function is responsible for modifying an existing task record in the database, such as changing its description, status, or any other properties.</li></ul><ul id="4d09df89-c0e2-4475-afca-9276e2488b7a" class="bulleted-list"><li style="list-style-type:disc"><strong>Entities</strong>: <code><strong>[Task]</strong></code> signifies that this action is concerned with the <code><strong>Task</strong></code> entity, aiming to update one or more of its properties.</li></ul></details></li></ul><hr id="87a0f661-ffda-4b1f-b70f-ac4c64c03952"/></details></li></ul><ul id="571e863f-41f8-4a46-b204-a28b7d05db01" class="toggle"><li><details open=""><summary>Queries  (main.wasp)</summary><p id="dea87e8c-c6f7-4b77-bed1-f9bf12661ce9" class="">This code snippet defines a &quot;query&quot; in our Wasp project. Queries in Wasp are operations designed to retrieve data from the server and make it available to the client (frontend).</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="948d6a8d-305f-4a2f-aa16-f8f193e81494" class="code"><code class="language-JavaScript">// 📚 Queries
+query getAllTasksByUser {
+  fn: import { getAllTasksByUser } from &quot;@src/server/queries.js&quot;,
+  entities: [Task]
+}
+</code></pre><h3 id="9497ca62-d64d-4aaa-96f9-11747abc4a00" class=""><strong>Specific  Query Explained</strong></h3><ul id="c8aa9a19-deb2-4990-a799-811300638cbe" class="toggle"><li><details open=""><summary>getAllTasksByUser Query</summary><ul id="3844ca00-2615-44ac-a955-c422280a1cc8" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose</strong>: Retrieves all tasks associated with a specific user.</li></ul><ul id="cca1c674-8be7-4e31-b6b7-5fd1d5694985" class="bulleted-list"><li style="list-style-type:disc"><strong>Function Import</strong>: <code><strong>import { getAllTasksByUser } from &quot;@src/server/queries.js&quot;</strong></code> tells Wasp where to find the JavaScript function that implements the logic for fetching tasks. The <code><strong>getAllTasksByUser</strong></code> function is expected to query the database for tasks that belong to a particular user, likely based on the user&#x27;s ID or another unique identifier.</li></ul><ul id="ed7e6372-8c6a-45a1-bd9b-02bf1f125c24" class="bulleted-list"><li style="list-style-type:disc"><strong>Entities</strong>: <code><strong>[Task]</strong></code> indicates that this query interacts with the <code><strong>Task</strong></code> entity. This means the query is focused on retrieving records from the database table or collection associated with tasks, specifically filtering them by user.</li></ul></details></li></ul><hr id="8af0cd5d-b0e4-43ec-bcfb-b38ce2e75ad8"/></details></li></ul><ul id="1c80bb59-fbc2-4c85-a72b-7b30d9bd4d38" class="toggle"><li><details open=""><summary>API endpoint  (main.wasp)</summary><p id="d75ad3e7-22f0-47e1-8a60-99b8d161f634" class="">This snippet from a Wasp file defines a custom API endpoint, specifically for handling Stripe webhook events.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d375d657-bb9b-4db1-b1d9-9f648936d45b" class="code"><code class="language-JavaScript">/*
+ * 📡 These are custom Wasp API Endpoints. Use them for callbacks, webhooks, etc.
+ * https://wasp-lang.dev/docs/advanced/apis
+ */ 
+
+api stripeWebhook {
+  fn: import { stripeWebhook } from &quot;@src/server/webhooks/stripe.js&quot;,
+  entities: [User],
+  middlewareConfigFn: import { stripeMiddlewareFn } from &quot;@src/server/webhooks/stripe.js&quot;,
+  httpRoute: (POST, &quot;/stripe-webhook&quot;)
+}</code></pre><p id="60536ea2-e16d-4446-b2ea-1f17808fdcf2" class="">This Wasp API endpoint definition sets up a backend route to handle Stripe webhook events. When Stripe sends a webhook event to your application (to the <code><strong>/stripe-webhook</strong></code> path using a POST request), the <code><strong>stripeMiddlewareFn</strong></code> middleware is first invoked to perform any necessary preliminary checks or processing. Then, the main <code><strong>stripeWebhook</strong></code> function is called to handle the event, which may involve interacting with the <code><strong>User</strong></code> entity based on the content of the webhook</p></details></li></ul><p id="3c8ad1d1-9e03-4c0e-b4ce-65834319c657" class="">
+</p></div><div id="2fd8bcde-eaa9-401b-bc27-604b40e461ce" style="width:33.33333333333333%" class="column"><h3 id="93920706-d5d3-4989-8753-f53a4a7d2ea3" class="">Backend:</h3><ul id="c37cb62b-25ca-421d-b11d-8da553b749e6" class="toggle"><li><details open=""><summary>File Structure</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="820f8e4b-707a-4524-970a-806653aad2bb" class="code"><code class="language-Markdown">├── server
+│   ├── auth
+│   |   ├──email.ts
+│   |   ├──setUsername.ts
+│   ├── scripts
+│   |   ├──userSeed.ts
+├── actions.ts
+├── queries.ts</code></pre></details></li></ul><ul id="86134db1-2377-4169-bbab-c5d8e7f122c4" class="toggle"><li><details open=""><summary>Path Table</summary><table id="54654d3f-1d70-49a0-9e58-f26a7d00770d" class="simple-table"><tbody><tr id="4af5f48f-3700-47bf-9084-c0d51249f5ff"><td id="Hq~x" class="block-color-blue">Name</td><td id="w?AF" class="block-color-blue">Path</td><td id="Kgsf" class="block-color-blue">Description</td></tr><tr id="65f27970-168d-4b9d-b02e-2446c592902e"><td id="Hq~x" class="">Login</td><td id="w?AF" class="">/login</td><td id="Kgsf" class="">Login Page</td></tr><tr id="95100c93-309a-4511-9eb9-0fabc536ed44"><td id="Hq~x" class="">Signup</td><td id="w?AF" class="">/signup</td><td id="Kgsf" class="">Signup Page</td></tr><tr id="519fd80d-d3f3-46a1-8f29-611d5ec868dd"><td id="Hq~x" class="">Demo app</td><td id="w?AF" class="">/demo-app</td><td id="Kgsf" class="">Notes Page</td></tr></tbody></table></details></li></ul><ul id="b1b0e6c5-c300-45e1-9528-f2ba4b575087" class="toggle"><li><details open=""><summary>.wasp / db / schema.prisma</summary><p id="c122e203-d2c4-490d-b12e-27023c45f1c2" class="">The <code>schema.prisma</code> file defines the data model for a web application using a PostgreSQL database. Our schema specifies how data is organized, including the structure of tables and relationships between them in the database. </p><ul id="731c8825-59d2-4db2-8e94-c8c1712c1c98" class="toggle"><li><details open=""><summary><strong>Datasource and Generator</strong></summary><ul id="79857bda-364a-41e9-b930-1d931ce97deb" class="bulleted-list"><li style="list-style-type:disc"><code><strong>datasource db</strong></code>: This block defines the database connection. It specifies PostgreSQL as the database provider and uses an environment variable (<code><strong>DATABASE_URL</strong></code>) to securely store the database connection string.</li></ul><ul id="fcdebb2e-1fd9-4625-a2d4-6febe01ae374" class="bulleted-list"><li style="list-style-type:disc"><code><strong>generator client</strong></code>: This block configures the Prisma Client, which is an auto-generated and type-safe query builder for Node.js &amp; TypeScript. It specifies that the Prisma Client should be generated using JavaScript (<code><strong>prisma-client-js</strong></code>).</li></ul></details></li></ul><ul id="b6cad01f-d0d6-4786-b1c8-47e94360fad3" class="toggle"><li><details open=""><summary>Models</summary><p id="26811d41-1f74-42cb-bdcc-eda604bc64c5" class="">The schema defines several models, which correspond to tables in the PostgreSQL database. Each model has fields that represent columns in the table, with types and constraints:</p><ul id="82e993d7-d50d-47a5-a590-79b315ec8854" class="bulleted-list"><li style="list-style-type:disc"><code><strong>User</strong></code>: Represents users of the application. It includes fields for user identification, authentication, and metadata (like <code><strong>email</strong></code>, <code><strong>username</strong></code>, <code><strong>isAdmin</strong></code> etc.). It also includes relations to other models like  <code><strong>Task</strong></code></li></ul><ul id="a5081f5e-2e6d-4d5c-8aa7-797cd7c09395" class="bulleted-list"><li style="list-style-type:disc"><code><strong>Task</strong></code>: Represents tasks created by users, with fields for description, status, and ownership.</li></ul><ul id="1a5862ef-e3a0-4c5a-a42c-f3db1ae5b25a" class="bulleted-list"><li style="list-style-type:disc"><code><strong>Auth</strong></code>, <code><strong>AuthIdentity</strong></code>, <code><strong>Session</strong></code>: These models are related to authentication and session management, allowing for tracking of user sessions and identities across different authentication providers.<br/><br/><br/><br/><br/><br/><br/></li></ul></details></li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="24c6b01d-7750-4ad1-bff4-080435ae6bf3" class="code"><code class="language-JavaScript">datasource db {
+  provider = &quot;postgresql&quot;
+  url      = env(&quot;DATABASE_URL&quot;)
+}
+
+generator client {
+  provider = &quot;prisma-client-js&quot;
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  email String? @unique
+  username String? @unique
+  createdAt DateTime @default(now())
+  lastActiveTimestamp DateTime @default(now())
+  isAdmin Boolean @default(false)
+  stripeId String?
+  checkoutSessionId String?
+  hasPaid Boolean @default(false)
+  subscriptionTier String?
+  subscriptionStatus String?
+  sendEmail Boolean @default(false)
+  datePaid DateTime?
+  credits Int @default(3)
+  gptResponses GptResponse[]
+  contactFormMessages ContactFormMessage[]
+  tasks Task[]
+  files File[]
+  auth Auth?
+
+}
+
+model Task {
+  id String @id @default(uuid())
+  description String
+  time String @default(&quot;1&quot;)
+  isDone Boolean @default(false)
+  user User @relation(fields: [userId], references: [id])
+  userId Int
+  createdAt DateTime @default(now())
+
+}
+model Logs {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  message String
+  level String
+
+}
+model Auth {
+  id String @id @default(uuid())
+  userId Int? @unique
+  user User? @relation(fields: [userId], references: [id], onDelete: Cascade)
+  identities AuthIdentity[]
+  sessions Session[]
+
+}
+model AuthIdentity {
+  providerName String
+  providerUserId String
+  providerData String @default(&quot;{}&quot;)
+  authId String
+  auth Auth @relation(fields: [authId], references: [id], onDelete: Cascade)
+  @@id([providerName, providerUserId])
+
+}
+model Session {
+  id String @id @unique
+  expiresAt DateTime
+  userId String
+  auth Auth @relation(references: [id], fields: [userId], onDelete: Cascade)
+  @@index([userId])
+
+}</code></pre></details></li></ul></div></div><p id="a56480bc-5e7d-4eb1-a607-434ed1626f33" class="">
+</p><h1 id="7c2f0ccf-754e-42f5-8366-d10e40a2ceee" class="">Testing</h1><div id="ccca5234-c20a-406d-8951-1e130ec1708b" class="column-list"><div id="bb37a4f6-964e-4a96-8ad6-79b35b55a788" style="width:49.99999999999999%" class="column"><h3 id="41b40f0e-29a0-4990-95fe-beae69716165" class="">FrontEnd Testing:</h3><ul id="bcdce239-c64d-4d27-880c-369a7d19b8a1" class="toggle"><li><details open=""><summary>How to Run and verify Vitest Test</summary><ol type="1" id="418d86d9-6632-4c9b-8020-4b2ceae01259" class="numbered-list" start="1"><li>Make sure you have installed ‘vitest’ with the command <br/><br/><code>npm install vitest --save-dev</code></li></ol><ol type="1" id="35c980f9-6598-4476-88b8-f53f59468e36" class="numbered-list" start="2"><li>Now run the command <br/><br/><code>wasp test client run</code></li></ol><ol type="1" id="712127d5-4fbb-405e-b7c9-76ac03035711" class="numbered-list" start="3"><li>If you see the below error below:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1d603fee-29cc-47b3-815b-c56e7ac6784a" class="code"><code class="language-Markdown">&gt; echo &quot;Error: no test specified&quot; &amp;&amp; exit 1
+
+Error: no test specified</code></pre><p id="31323525-6985-4669-9ce4-50fc8df6c166" class="">navigate to the package.json file and under ‘scripts’ change the test script to <code>&quot;test&quot;:&quot;vitest&quot;</code></p></li></ol><ol type="1" id="177b661f-2d54-4a91-afd4-1690466603d7" class="numbered-list" start="4"><li>After making that change, run <br/><br/><code>wasp test client run</code></li></ol><ol type="1" id="299d6e42-6070-4867-926b-f9aa9217cfb6" class="numbered-list" start="5"><li>The test will run in the terminal and will show which tests pass and fail:<br/>ex:<br/><figure id="f3c5a09f-f2e3-4bc4-9f81-97268427b294" class="image"><a href="SaaS%20Notes%20Documentation%20c108933b15db4944a97d95c4c0882236/WindowsTerminal_z1s707QJQA.png"><img style="width:849px" src="SaaS%20Notes%20Documentation%20c108933b15db4944a97d95c4c0882236/WindowsTerminal_z1s707QJQA.png"/></a></figure></li></ol></details></li></ul><p id="f505c1c6-c947-4d9d-81e4-28c84f1f5277" class="">The following test are located in the client directory:</p><ul id="3a95afde-f0f8-4d97-92fb-2bf6c932534a" class="toggle"><li><details open=""><summary>DemoAppPage.spec.tsx</summary><ul id="afde087e-8354-43d7-9820-fc65a3220a7f" class="toggle"><li><details open=""><summary>Testing Setup</summary><p id="2baec9fe-ba93-45f3-9af1-b218837a5404" class="">We are using Vitest for testing and @testing-library/react for rendering and interacting with React components. This suite focuses on testing the DemoApp component, particularly its functionality related to tasks (e.g., displaying, deleting, and creating tasks).</p><ul id="6f397cba-8ced-4d50-b4b6-238d4371daa5" class="toggle"><li><details open=""><summary>Imports:</summary><ul id="24729a87-dd73-477b-a884-288c1e8871df" class="bulleted-list"><li style="list-style-type:disc"><code><strong>renderInContext</strong></code>: A utility from <code><strong>wasp/client/test</strong></code> for rendering components within the necessary context required by Wasp, ensuring that global states, routing, etc., are correctly set up for the test environment.</li></ul><ul id="629abab7-944e-462b-af0d-421e83ea6327" class="bulleted-list"><li style="list-style-type:disc"><strong>Vitest Functions</strong>: <code><strong>test</strong></code>, <code><strong>expect</strong></code>, <code><strong>vi</strong></code>, and <code><strong>beforeEach</strong></code> are imported from Vitest, the testing framework. These are used to define test cases (<code><strong>test</strong></code>), make assertions (<code><strong>expect</strong></code>), mock functions or modules (<code><strong>vi</strong></code>), and set up conditions that are applied before each test case (<code><strong>beforeEach</strong></code>).</li></ul><ul id="22fd01d8-5cbe-4b45-b212-9202bd9b1f87" class="bulleted-list"><li style="list-style-type:disc"><strong>Testing Library Utilities</strong>: <code><strong>screen</strong></code> and <code><strong>fireEvent</strong></code> are imported from <code><strong>@testing-library/react</strong></code> for querying the DOM and simulating user events.</li></ul><ul id="1c03f836-c6b9-49bb-aa4b-4646d645569d" class="bulleted-list"><li style="list-style-type:disc"><strong>Wasp Client Operations</strong>: <code><strong>deleteTask</strong></code>, <code><strong>useQuery</strong></code>, <code><strong>getAllTasksByUser</strong></code>, and <code><strong>createTask</strong></code> are operations provided by Wasp for interacting with the backend. These are being mocked in this test suite.</li></ul><ul id="d79b475c-6867-4fa7-baf9-21aac2a94768" class="bulleted-list"><li style="list-style-type:disc"><code><strong>DemoApp</strong></code><strong> Component</strong>: The component we are testing in this suite</li></ul></details></li></ul><p id="86bfa9c1-270f-4e71-a52b-1d8137f7ce85" class="">Next, a <code><strong>mockTasks</strong></code> array is defined to simulate a list of tasks that might be fetched from the backend. This mock data is used to provide consistent test conditions. </p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="c46f496d-21f8-4a0d-971c-956f4525fabd" class="code"><code class="language-JavaScript">import { renderInContext } from &#x27;wasp/client/test&#x27;;
+import { test, expect, vi, beforeEach } from &#x27;vitest&#x27;;
+import { screen, fireEvent } from &#x27;@testing-library/react&#x27;;
+import { deleteTask, useQuery, getAllTasksByUser, createTask } from &#x27;wasp/client/operations&#x27;;
+import DemoApp from &#x27;../../app/DemoAppPage&#x27;;
+
+const mockTasks = [
+  {
+    id: &#x27;1&#x27;,
+    description: &#x27;test todo 1&#x27;,
+    isDone: true,
+    userId: 1,
+    createdAt: new Date(),
+    time: &#x27;test-time&#x27;,
+  },
+  {
+    id: &#x27;2&#x27;,
+    description: &#x27;test todo 2&#x27;,
+    isDone: false,
+    userId: 1,
+    createdAt: new Date(),
+    time: &#x27;test-time&#x27;,
+  },
+];
+vi.mock(&#x27;wasp/client/operations&#x27;, () =&gt; ({
+  deleteTask: vi.fn(),
+  getAllTasksByUser: vi.fn(() =&gt; [
+    {
+      id: &#x27;1&#x27;,
+      description: &#x27;test todo 1&#x27;,
+      isDone: true,
+      userId: 1,
+      createdAt: new Date(),
+      time: &#x27;test-time&#x27;,
+    },
+  ]),
+  updateTask: vi.fn(),
+  createTask: vi.fn(),
+  useQuery: vi.fn(() =&gt; vi.fn(() =&gt; mockTasks)),
+  generateGptResponse: vi.fn(),
+}));
+
+beforeEach(() =&gt; {
+  vi.mocked(useQuery).mockImplementation(
+    () =&gt;
+      ({
+        data: mockTasks,
+      }) as any
+  );
+});</code></pre></details></li></ul><ul id="a705fd65-06da-4152-893b-d56eda4b9c53" class="toggle"><li><details open=""><summary>Test: Delete A Task</summary><p id="11695d33-7535-4a1e-99eb-a2fbd3bf591e" class="">This test verifies that a task can be deleted from the <code><strong>DemoApp</strong></code> component. It renders the component, checks for the presence of predefined tasks, simulates a click on the delete button for the first task, and then asserts that the <code><strong>deleteTask</strong></code> operation was called with the correct task ID. This test ensures that the component correctly interacts with the delete operation when a user attempts to remove a task.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="a141de0f-21f0-4fe2-b4d7-0bcc2925f9cb" class="code"><code class="language-JavaScript">test(&#x27;delete a task&#x27;, async () =&gt; {
+  renderInContext(&lt;DemoApp /&gt;);
+
+  await screen.findByText(&#x27;test todo 1&#x27;);
+
+  await screen.findByText(&#x27;test todo 2&#x27;);
+
+  const deleteButton = await screen.getAllByTitle(&#x27;Remove task&#x27;);
+
+  await deleteButton[0].click();
+
+  expect(deleteTask).toHaveBeenCalledWith({ id: &#x27;1&#x27; });
+});</code></pre></details></li></ul><ul id="da4a9d31-bbae-4741-b6e6-76c02a08164a" class="toggle"><li><details open=""><summary>Test: Renders All The Task</summary><p id="4df75071-c9c7-4657-a41d-4afc5b834157" class="">This test checks that all tasks are correctly rendered by the <code><strong>DemoApp</strong></code> component. After rendering the component, it asserts that the <code><strong>useQuery</strong></code> hook was called to fetch tasks. It then verifies the presence of tasks and their completion status by checking the state of checkboxes associated with each task. This test ensures that the component successfully fetches and displays tasks, accurately reflecting their completion status.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="6e8b8340-173b-4a1d-b2d2-4714c53b009a" class="code"><code class="language-JavaScript">test(&#x27;renders all the tasks&#x27;, async () =&gt; {
+  renderInContext(&lt;DemoApp /&gt;);
+
+  expect(useQuery).toHaveBeenCalled();
+
+  await screen.findByText(&#x27;test todo 1&#x27;);
+
+  const checkBoxes = await screen.getAllByRole(&#x27;checkbox&#x27;);
+
+  expect(checkBoxes[0]).toBeChecked();
+
+  await screen.findByText(&#x27;test todo 2&#x27;);
+
+  expect(checkBoxes[1]).not.toBeChecked();
+});</code></pre></details></li></ul><ul id="47cb566b-54ba-4465-b1d7-0c9226023c6a" class="toggle"><li><details open=""><summary>Test: Can Create A Task</summary><p id="d6c8ad67-e7d6-4b9f-bfda-c5134a6fdcfb" class="">This test focuses on the task creation feature of the <code><strong>DemoApp</strong></code> component. It renders the component, simulates user input to enter a new task description, simulates a click on the submit button, and then asserts that the <code><strong>createTask</strong></code> operation was called with the expected task description. This test validates that the component can take user input and correctly initiate the task creation process.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="bdb64084-2d28-46f5-8991-50c53133411d" class="code"><code class="language-JavaScript">test(&#x27;can create a task&#x27;, async () =&gt; {
+  renderInContext(&lt;DemoApp /&gt;);
+  const input = await screen.findByPlaceholderText(&#x27;Enter note description&#x27;);
+  const submitBtn = await screen.findByTitle(&#x27;submitBtn&#x27;);
+
+  await fireEvent.change(input, { target: { value: &#x27;walk the dog&#x27; } });
+  await fireEvent.click(submitBtn);
+  expect(createTask).toHaveBeenCalledWith({ description: &#x27;walk the dog&#x27; });
+});</code></pre></details></li></ul></details></li></ul><ul id="62f98a18-f606-41bb-84e4-d0f651d13dde" class="toggle"><li><details open=""><summary>LoginPage_test.spec.tsx</summary><p id="f09d391f-2226-4b2f-a965-0c40c81b81e0" class="">This test suite focuses on testing the ‘LoginPage’ component. We are using <code><strong>@testing-library/react</strong></code> for rendering components and querying the DOM, and using a <code><strong>MemoryRouter</strong></code> from <code><strong>react-router-dom</strong></code> to simulate routing context required by components that are using routing features. </p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="a395d913-ed78-4c64-9e7a-8e6940c801b7" class="code"><code class="language-JavaScript">import {describe, test, vi, expect} from &#x27;vitest&#x27;;
+import {useAuth} from &#x27;wasp/client/auth&#x27;;
+import {render, screen} from &#x27;@testing-library/react&#x27;;
+import { MemoryRouter } from &#x27;react-router-dom&#x27;;
+import LoginPage from &#x27;../../auth/LoginPage&#x27;;
+
+vi.mock(&#x27;wasp/client/auth&#x27;, () =&gt; ({
+    useAuth: vi.fn(),
+    LoginForm: vi.fn(() =&gt; &lt;div&gt;LoginForm Mock&lt;/div&gt;)
+}))
+
+console.log(useAuth, &#x27;Check here!!!&#x27;)
+
+describe(&#x27;Tests for LoginPage&#x27;, () =&gt; {
+    test(&#x27;LoginPage should render&#x27;, async () =&gt; {
+        vi.mocked(useAuth).mockImplementation(() =&gt; ({
+            data: null,
+        }) as any);
+
+        render(
+            &lt;MemoryRouter&gt;
+                &lt;LoginPage/&gt;
+            &lt;/MemoryRouter&gt;
+        )
+
+        expect(screen.getByText(/don&#x27;t have an account yet\?/i)).toBeInTheDocument()
+    })
+})</code></pre><p id="cdc237fb-6d19-415e-8137-e9cc869d5c02" class="">The <code><strong>vi.mock</strong></code> function is used to mock the <code><strong>wasp/client/auth</strong></code> module. Specifically, it mocks the <code><strong>useAuth</strong></code> hook and a <code><strong>LoginForm</strong></code> component. The <code><strong>LoginForm</strong></code> is mocked to return a div with the text &quot;LoginForm Mock&quot;, which simplifies the test by not rendering the actual form.<br/><br/> &quot;Tests for LoginPage&quot; is defined using <br/><code><strong>describe</strong></code>. It contains a single test case, &quot;LoginPage should render&quot;, which checks if the <code><strong>LoginPage</strong></code> component renders correctly.</p><p id="8fe43fc3-6f96-4364-8027-0647241f07ec" class="">Inside the test case, the <code><strong>useAuth</strong></code> hook is further mocked to return an object with <code><strong>data</strong></code> set to <code><strong>null</strong></code>. This setup simulates the scenario where no user is currently authenticated.</p><p id="3b7c1039-bd91-489e-ba3e-0b2cac53e2dc" class="">The <code><strong>LoginPage</strong></code> component is rendered within a <code><strong>MemoryRouter</strong></code> to provide the necessary routing context.</p><p id="950668a4-75f7-4194-85bc-4078270cc3c9" class="">lastly, the test asserts that a text element with the content &quot;Don&#x27;t have an account yet?&quot; is present in the document. This assertion checks if the <code><strong>LoginPage</strong></code> correctly displays a prompt or link for users to create a new account, indicating that the component has rendered as expected.<br/><br/><br/><br/><br/></p></details></li></ul><p id="e028badf-5274-415f-9188-b388096f409c" class="">
+</p></div><div id="02df74f2-c249-407c-af19-e3d0f0d8663f" style="width:49.99999999999998%" class="column"><h3 id="bc334d5a-ef03-4220-898f-3c52e3aad53a" class="">End to End Testing:</h3><ul id="4d8ea8c7-2a27-4c82-9b43-21b858593f2d" class="toggle"><li><details open=""><summary>Getting to know and setting up Cypress</summary><p id="19d8ba45-c11f-4ebc-9147-6f51261b8e4c" class="">To set up Cypress for end-to-end (E2E) testing in your project, follow these steps:</p><ol type="1" id="7622b7df-f5c0-49b7-9634-f548fb3a0fd1" class="numbered-list" start="1"><li><strong>Create a New directory for Cypress</strong>: If you haven&#x27;t already, create a new project directory for your Cypress E2E tests.</li></ol><figure id="0df4a763-e18d-4e79-bfcd-aba909617148" class="image"><a href="SaaS%20Notes%20Documentation%20c108933b15db4944a97d95c4c0882236/cypressImg.png"><img style="width:354px" src="SaaS%20Notes%20Documentation%20c108933b15db4944a97d95c4c0882236/cypressImg.png"/></a></figure><figure id="6755a3f8-2dc6-4323-b929-d7f5cbedbc23" class="image"><a href="https://www.notion.so"><img src="https://www.notion.so"/></a></figure><p id="0a711825-772f-4f2b-87fb-ad490f27c112" class="">2.<strong>Initialize NPM</strong>: Navigate to your project directory and initialize a new NPM project by running:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="bd46746d-5044-40bf-a183-05d76a141666" class="code"><code class="language-Bash">npm init -y</code></pre><ol type="1" id="dd85b200-62e3-497c-894e-799457f1de81" class="numbered-list" start="3"><li><strong>Install Cypress</strong>: Install Cypress as a development dependency in your project by running:</li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1b1065ad-fb02-4b25-bb7a-8e203c896066" class="code"><code class="language-Bash">npm install --save-dev cypress</code></pre><p id="2216c8e6-f79a-49b0-9c03-1c0af51b08cf" class="">4.<strong>Add npm Script</strong>: Add an npm script to your <code><strong>package.json</strong></code> file to run Cypress. Open your <code><strong>package.json</strong></code> file and add the following script:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="37316463-4648-4318-b458-7ec71786d5ba" class="code"><code class="language-JSON">{
+  &quot;scripts&quot;: {
+    &quot;cypress:open&quot;: &quot;cypress open&quot; // add this
+  }
+}</code></pre><p id="cbef8647-5816-4386-b4f4-aa0a72373caa" class="">
+</p><ol type="1" id="a89a0a21-6cf5-424c-8873-1f38a6b7558c" class="numbered-list" start="5"><li><strong>Start the Application</strong>: Start your application in test mode. This might involve setting the <code><strong>NODE_ENV</strong></code> environment variable to <code><strong>test</strong></code>. Add a script to your backend <code><strong>package.json</strong></code> to start the application in test mode.</li></ol><ol type="1" id="85146fdd-be22-4509-928a-d08f4639d641" class="numbered-list" start="6"><li><strong>Run Cypress</strong>: Now, you can run Cypress by executing the following command in your terminal:</li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="0d5251e5-3e37-49cc-901a-f5ee3c8bc57f" class="code"><code class="language-Bash">npm run cypress:open</code></pre><ol type="1" id="169afb64-b9e2-40ad-a4b5-330e5fa8bed0" class="numbered-list" start="7"><li><strong>Create a New Spec File</strong>: In the Cypress Test Runner, click on &quot;E2E Testing&quot; to create a new E2E test. Select your preferred browser (e.g., Chrome), and then click &quot;Create new spec&quot;. This will create a new spec file where you can write your E2E tests.</li></ol><figure id="3e07b01d-fb35-457f-89cd-7f7660a1ae04" class="image"><a href="SaaS%20Notes%20Documentation%20c108933b15db4944a97d95c4c0882236/testingCy.png"><img style="width:759px" src="SaaS%20Notes%20Documentation%20c108933b15db4944a97d95c4c0882236/testingCy.png"/></a></figure><ol type="1" id="d24999ad-9f9b-43a4-aeed-940a703758ed" class="numbered-list" start="8"><li><strong>Write Your E2E Tests</strong>: In the spec file, you can start writing your E2E tests using Cypress&#x27; API. Refer to Cypress documentation and guides for writing effective E2E tests.</li></ol><figure id="9c1726d0-3598-476a-a0c0-49c89bbc284c" class="image"><a href="SaaS%20Notes%20Documentation%20c108933b15db4944a97d95c4c0882236/creatingFileCy.png"><img style="width:978px" src="SaaS%20Notes%20Documentation%20c108933b15db4944a97d95c4c0882236/creatingFileCy.png"/></a></figure><p id="a3f87162-b48e-41bc-b2f8-3260fc9c8caa" class="">
+</p><p id="586e2670-4b25-463c-afce-e59a3e27ba30" class="">
+</p><p id="c3cf65f4-5b82-4bb5-992d-f1da1e66a230" class="">
+</p></details></li></ul><ul id="5b62e511-fb91-4e50-b6a5-a30e324506ec" class="toggle"><li><details open=""><summary>How to run and verify  Cypress test</summary><ol type="1" id="4e2bac9f-29f1-4ee4-90f9-f43a2142555e" class="numbered-list" start="1"><li>After installing Cypress with the command below, Check that Docker is running<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="205f2c52-772c-4d25-a772-be294ff62523" class="code"><code class="language-Markdown">npm install cypress --save-dev</code></pre></li></ol><ol type="1" id="7dac691d-dbf8-4e64-ac28-48834b95cb1b" class="numbered-list" start="2"><li>If you have not already,  run the following command:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="4d520666-07c2-4f2f-b4a3-fa1681d49088" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">npm i --save-dev @types/node</code></pre></li></ol><ol type="1" id="9ff591f4-a034-46d0-9331-e21f97f21133" class="numbered-list" start="3"><li>Check that the front end &amp; database are running in your terminals<ol type="a" id="615a4d73-ac4b-4cf1-a7dc-b1b32cc467e7" class="numbered-list" start="1"><li>Remember the database is run with the command<code> ‘wasp start db’</code></li></ol><ol type="a" id="f8573b47-1cbf-406a-a2ed-06e9a7de7c6b" class="numbered-list" start="2"><li>Remember the front end is run with the command <code>‘wasp start’</code></li></ol></li></ol><ol type="1" id="145b909b-27cf-4d7a-89dc-533209ece1af" class="numbered-list" start="4"><li>If you run into the error below:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="5ee0ea16-4497-446c-9982-c01df9532f52" class="code"><code class="language-Markdown">❌ --- [Error] Your wasp project failed to compile: -------------------------------
+
+- Error: Dependency conflict for user dependency (@types/node, ^18.19.24): Version must be set to the exactly the same version as the one wasp is using: ^18.0.0</code></pre><p id="d6bff5ee-3eda-4807-b69b-0215aa88b6ed" class="">navigate to the package.json file and under ‘devDependencies’ change the @types/node dependency  to<br/><br/><code>&quot;@types/node&quot;: &quot;^18.0.0”</code> ,</p></li></ol><ol type="1" id="49de1cbf-dc59-48fd-86c4-d8dd07905588" class="numbered-list" start="5"><li>Now run the command <br/><br/><code>npm run cypress:open</code></li></ol><ol type="1" id="6462a549-7ba2-4733-b613-2c3fa6fd9287" class="numbered-list" start="6"><li>Select <mark class="highlight-red"><strong>E2E testing</strong></mark><strong> </strong>on the Cypress UI that pops up.</li></ol><ol type="1" id="3c843f75-61dd-467e-abbb-59a0f1dcddb0" class="numbered-list" start="7"><li>Then select <br/><br/><mark class="highlight-red"><strong>Start E2E Testing In Electron</strong></mark></li></ol><ol type="1" id="af2a081b-45af-4bca-ac51-0938ca86d1fe" class="numbered-list" start="8"><li>Now you will see the test file names listed<ol type="a" id="8ccef73e-16a5-4b78-90b5-e6793ec9a843" class="numbered-list" start="1"><li>click on the individual test to see test results</li></ol><ol type="a" id="c653ebdd-1397-4645-8423-bc33b281d27a" class="numbered-list" start="2"><li>Notice the term ‘Specs’ at the top of each test. Next to Specs you will see a green check mark next to a red <mark class="highlight-red">X. </mark><mark class="highlight-default">Here you will see a number next to one of them indicating if the test has passed or failed</mark></li></ol><ol type="a" id="c1c98a76-ba7f-4597-a06d-d9a52ec0a091" class="numbered-list" start="3"><li>Below that section is the TEST BODY section which provides details about the passed or failed test.</li></ol></li></ol></details></li></ul><ul id="dd3c40f9-caa7-46ea-8af7-3e7a0747bf87" class="toggle"><li><details open=""><summary>loginpage.cy.ts</summary><p id="bfd7de1e-bbd6-449c-9264-f8525452efe8" class="">This test script outlines a test case for the login page, focusing on several key functionalities: displaying the login form, handling an incorrect login attempt, and navigating to the signup page.</p><p id="601bab0b-2994-4fe7-b98b-218b57e5dfdd" class="">We begin by importing custom commands from &#x27;../support/commands&#x27;, which can be used to extend Cypress&#x27;s testing capabilities with custom functions.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="e295ad1e-f150-445e-b8b6-f90d7dc3902d" class="code"><code class="language-TypeScript">import &#x27;../support/commands&#x27;;
+
+describe(&#x27;User opened Landing Page&#x27;, () =&gt; {
+  beforeEach(() =&gt; {
+      // Visit the landing/login page
+    cy.visit(&#x27;http://localhost:3000/&#x27;)
+  })
+
+  it(&#x27;should display the login form and page elements&#x27;, () =&gt; {
+    // Ensure that the login form elements are visible
+    cy.get(&#x27;form&#x27;).should(&#x27;exist&#x27;);
+    cy.get(&#x27;input[name=&quot;username&quot;]&#x27;).should(&#x27;exist&#x27;);
+    cy.get(&#x27;input[name=&quot;password&quot;]&#x27;).should(&#x27;exist&#x27;);
+    cy.get(&#x27;button[type=&quot;submit&quot;]&#x27;).contains(&#x27;Log in&#x27;).should(&#x27;exist&#x27;);
+    cy.contains(&quot;Don&#x27;t have an account yet?&quot;).should(&#x27;exist&#x27;);
+    cy.contains(&#x27;go to signup&#x27;).should(&#x27;exist&#x27;);
+    cy.contains(&#x27;Forgot your password?&#x27;).should(&#x27;exist&#x27;);
+    cy.contains(&#x27;reset it&#x27;).should(&#x27;exist&#x27;);
+  })
+
+  it(&#x27;should handle incorrect login&#x27;, () =&gt; {
+    // Attempt incorrect login
+    cy.get(&#x27;input[name=&quot;username&quot;]&#x27;).type(&#x27;incorrect_username&#x27;);
+    cy.get(&#x27;input[name=&quot;password&quot;]&#x27;).type(&#x27;incorrect_password&#x27;);
+    cy.get(&#x27;button&#x27;).click();
+    cy.contains(&#x27;Invalid credentials&#x27;).should(&#x27;be.visible&#x27;);
+  
+  })
+
+  it(&#x27;should redirect to and display the signup page elements&#x27;, () =&gt; {
+    // Redirect to signup page
+    cy.contains(&#x27;go to signup&#x27;).click();
+    cy.url().should(&#x27;include&#x27;, &#x27;/signup&#x27;);
+
+    // Ensure that the signup form elements are visible
+    cy.get(&#x27;form&#x27;).should(&#x27;exist&#x27;); //the SignupForm is wrapped in a form element
+    cy.url().should(&#x27;include&#x27;, &#x27;/&#x27;); // if user has already an account render to login 
+  });
+
+  //below test not working until we find out how to get auth. none of the accounts created through the signup page are working, gives us invalid credentials error when trying to login.
+  it.skip(&#x27;should allow users to login with valid accounts created in signup page&#x27;, () =&gt; {
+    // Redirect to signup page
+    cy.contains(&#x27;go to signup&#x27;).click();
+
+    //create an account to login with in next test
+    cy.get(&#x27;input[name=&quot;username&quot;]&#x27;).type(&#x27;correctUsername&#x27;)
+    cy.get(&#x27;input[name=&quot;password&quot;]&#x27;).type(&#x27;correctPassword123&#x27;);
+    cy.get(&#x27;button&#x27;).click();
+    cy.visit(&#x27;http://localhost:3000/&#x27;);
+
+    cy.get(&#x27;input[name=&quot;username&quot;]&#x27;).type(&#x27;correctUsername&#x27;)
+    cy.get(&#x27;input[name=&quot;password&quot;]&#x27;).type(&#x27;correctPassword123&#x27;);
+    cy.get(&#x27;button&#x27;).click();
+    cy.url().should(&#x27;include&#x27;, &#x27;demo-app&#x27;)
+  });
+});</code></pre><p id="fbdf0966-48e9-4569-ac0f-e12808632afa" class=""> The <code><strong>describe</strong></code> function is used to group related tests together. In this case, it groups tests related to the &quot;Login Page.&quot;</p><ul id="26c08feb-57e0-41d5-a97d-cbb7c6d6800b" class="bulleted-list"><li style="list-style-type:disc">Inside the <code><strong>describe</strong></code> block, the <code><strong>it</strong></code> function defines a single test case. The description of the test case  will cover displaying the login form, handling an incorrect login attempt, and redirecting to the signup page.</li></ul><ul id="62b75221-1c91-47a8-a6cc-39003ec11db5" class="toggle"><li><details open=""><summary>Test Functionality:</summary><ol type="1" id="09cf1054-1120-4a09-9f9a-58fe7edc9606" class="numbered-list" start="1"><li><strong>Visit Login Page</strong>: Each test within the describe block first begins by navigating to the application&#x27;s login page using <code><strong>cy.visit(&#x27;http://localhost:3000/&#x27;)</strong></code>.</li></ol><ol type="1" id="2d505a8f-3365-49ee-b901-8defbf228248" class="numbered-list" start="2"><li><strong>Form &amp; Page Elements</strong>: It then checks for the existence of the login form and its elements (username and password inputs, and the login button) to ensure they are visible to the user. The test verifies the presence of texts and links related to account creation (&quot;Don&#x27;t have an account yet?&quot;), forgotten passwords (&quot;Forgot your password?&quot;), and their respective actions (&quot;go to signup&quot;, &quot;reset it&quot;).</li></ol><ol type="1" id="cd33f4f3-be58-475d-9592-854ac77d463f" class="numbered-list" start="3"><li><strong>Attempt Incorrect Login</strong>: The script simulates an incorrect login attempt by typing wrong credentials into the username and password fields and clicking the login button. It expects to see a message indicating an &quot;Invalid credentials&quot;.</li></ol><ol type="1" id="02b69b2a-ccc8-4f56-af60-496eeb798a9c" class="numbered-list" start="4"><li><strong>Navigate to Signup Page</strong>: The test simulates a user action to navigate to the signup page by clicking on the &quot;go to signup&quot; link and verifies that the URL includes &#x27;/signup&#x27;.</li></ol></details></li></ul></details></li></ul><ul id="6debc14f-88b8-45f4-967d-15417c7af54d" class="toggle"><li><details open=""><summary>noteApp.cy.ts</summary><p id="cc81caaf-2134-487f-a7aa-4913566f4b90" class="">The test checks several key aspects of the app, including navigation, conditional rendering based on the presence of notes, and interaction with UI elements.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1211e5b6-e2c9-4df3-957d-e820ae24f626" class="code"><code class="language-JavaScript">it(&#x27;show notes app page&#x27;, () =&gt; {
+  // Visit the notes app
+  cy.visit(&#x27;http://localhost:3000/demo-app&#x27;);
+
+  // Visit the authenticated page to ensure user is logged in
+  cy.visit(&#x27;http://localhost:3001/auth/me&#x27;);
+
+  // Check if there are notes
+  cy.get(&#x27;.notes&#x27;).then(($notes) =&gt; {
+    if ($notes.length &gt; 0) {
+      // If there are notes
+      cy.contains(&#x27;Notes found&#x27;).should(&#x27;be.visible&#x27;);
+    } else {
+      // If there are no notes
+      cy.contains(&#x27;No notes found&#x27;).should(&#x27;be.visible&#x27;);
+    }
+  });
+
+  // Click on the &quot;Add Notes&quot; button
+  cy.contains(&#x27;Add Notes&#x27;).click();
+
+  // Check if the add notes modal is visible
+  cy.get(&#x27;.modal&#x27;).should(&#x27;be.visible&#x27;);
+});</code></pre><ul id="2d6baff7-d6d9-48b9-8eff-b7eb85ff8c7a" class="toggle"><li><details open=""><summary>Test Steps</summary><ol type="1" id="de96038d-db4a-4942-95f8-aa322ab59c0d" class="numbered-list" start="1"><li>The test begins by navigating to the demo app&#x27;s page at <code><strong>http://localhost:3000/demo-app</strong></code>. </li></ol><ol type="1" id="035328cb-cad5-4640-ac42-071899ee34a6" class="numbered-list" start="2"><li> Next, the test navigates to <code><strong>http://localhost:3001/auth/me</strong></code>, to ensure that the user is logged in. This step is checking if the navigation to an authenticated route is successful, and that the user session is active. </li></ol><ol type="1" id="b1e6b827-e4fb-44a5-b7a5-9beb68ec781e" class="numbered-list" start="3"><li>The test then queries for elements with a class of <code><strong>.notes</strong></code> to determine if any notes are currently displayed on the page. This is done using <code><strong>cy.get(&#x27;.notes&#x27;)</strong></code>, and the result is passed to a callback function for further logic based on the presence or absence of notes:<ul id="498704eb-aeb0-44af-9886-671b69e83868" class="bulleted-list"><li style="list-style-type:disc">If notes are present (<code><strong>$notes.length &gt; 0</strong></code>), the test expects to find visible text on the page that says &quot;Notes found&quot;.</li></ul><ul id="40781e1e-fc38-4069-ba81-6a716ae1b1f5" class="bulleted-list"><li style="list-style-type:disc">If no notes are present, the test expects to find visible text saying &quot;No notes found&quot;.</li></ul></li></ol><ol type="1" id="edf888d8-c1dd-4907-b3c8-60eec7d02b48" class="numbered-list" start="4"><li>The test simulates a user action by clicking on an &quot;Add Notes&quot; button. </li></ol><ol type="1" id="824012c5-7581-4b25-9080-aeb078e4ff98" class="numbered-list" start="5"><li>Finally, the test checks for the visibility of a modal (<code><strong>.modal</strong></code>) on the page. This step verifies that the UI responds as expected to the user&#x27;s action to add a new note, by displaying a modal where the note&#x27;s details can be entered.</li></ol></details></li></ul></details></li></ul><ul id="1702bcd8-d6ce-4de1-8dcb-cfc594406742" class="toggle"><li><details open=""><summary>signupPage.cy.ts</summary><p id="63a04d0f-5a1d-460d-9cc7-9af0552975c3" class=""> The test suite contains three test cases that check various aspects of the signup page to ensure it behaves as expected for users who are navigating to this page to create a new account.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="00a89bd9-866d-4d49-8962-9f509ac7542e" class="code"><code class="language-JavaScript">//problem to fix, this test will only pass properly once, because once an account is made, a duplicate account isn&#x27;t allowed. 
+//Both for this and for login page, we need to create an API that works with the wasp project to clear the DB so we can use one set of username/password and so we can hand in authorization for login page test.
+//for now, signup page test only fully passes if its the first time, or if you go into prisma db and delete the existing user or if you restart wasp db in terminal
+describe(&#x27;Signup Page&#x27;, () =&gt; {
+  beforeEach(() =&gt; {
+    // Visit the signup page
+    cy.visit(&#x27;http://localhost:3000/signup&#x27;); 
+})
+
+  it(&#x27;should display the signup form page properly&#x27;, () =&gt; {
+    // Ensure that the signup form elements are visible
+    cy.get(&#x27;form&#x27;).should(&#x27;exist&#x27;); //the SignupForm is wrapped in a form element
+    cy.url().should(&#x27;include&#x27;, &#x27;/&#x27;); // if user has already an account render to login 
+
+    cy.contains(&quot;I already have an account&quot;).should(&#x27;exist&#x27;); // Assuming the &quot;I already have an account&quot; text exists
+    cy.contains(&#x27;go to login&#x27;).should(&#x27;exist&#x27;); // Assuming the link to login exists
+  });
+
+  it(&#x27;should allow users to sign up valid accounts and be redirected to demo app&#x27;, () =&gt; {
+
+    cy.get(&#x27;input[name=&quot;username&quot;]&#x27;).type(&#x27;correctUsername&#x27;)
+    cy.get(&#x27;input[name=&quot;password&quot;]&#x27;).type(&#x27;correctPassword123&#x27;);
+    cy.get(&#x27;button&#x27;).click();
+    cy.url().should(&#x27;include&#x27;, &#x27;demo-app&#x27;)
+  });
+
+  it(&#x27;should validate their account submission attempts&#x27;, () =&gt; {
+    // Ensure that the signup form doesnt let you submit a password thats only text
+    cy.get(&#x27;input[name=&quot;username&quot;]&#x27;).type(&#x27;correctUsername&#x27;)
+    cy.get(&#x27;input[name=&quot;password&quot;]&#x27;).type(&#x27;correctPassword&#x27;);
+    cy.get(&#x27;button&#x27;).click();
+    cy.contains(&#x27;password must contain a number&#x27;).should(&#x27;be.visible&#x27;);
+
+    //ensure repeat password isn&#x27;t allowed
+    cy.get(&#x27;input[name=&quot;password&quot;]&#x27;).type(&#x27;correctPassword123&#x27;);
+    cy.get(&#x27;button&#x27;).click();
+    cy.contains(&#x27;Save failed: user with the same identity already exists&#x27;).should(&#x27;be.visible&#x27;);
+  });
+
+    
+});</code></pre><ul id="23fed246-b9c1-4fde-b0e5-25b1990f2037" class="toggle"><li><details open=""><summary>Test Cases</summary><ol type="1" id="9ec707fe-4be6-4325-b1d3-35a4ab7e8e39" class="numbered-list" start="1"><li><strong><strong>Test 1: Display of the Signup Form</strong></strong><p id="2118ea46-b4f2-46a8-9eee-f67d2601ddcc" class="">This test verifies that the signup form and related elements are correctly displayed on the page.</p><ul id="10fee67c-6f64-4819-a721-26d231b80124" class="bulleted-list"><li style="list-style-type:disc">The test checks for the existence of the form element, ensuring the signup form is present. It also verifies that the current URL includes <code><strong>&#x27;/&#x27;</strong></code><strong> . Lastly, it looks for text indicating the option to go to the login page if the user already has an account, confirming the presence of navigational aids for users.</strong></li></ul></li></ol><ol type="1" id="e96259ff-2611-42a0-b2cc-6a5debbb772c" class="numbered-list" start="2"><li><strong><strong>Test 2: Successful Account Signup</strong></strong><p id="e80d29d3-4b9b-4cb5-8111-e380a4fe94ea" class="">This test is checking if users can successfully sign up with valid credentials and are then redirected to the application.</p><ul id="bc85946f-9c9a-4bb1-a165-390a5090798c" class="bulleted-list"><li style="list-style-type:disc">The test inputs a username and a password into the respective fields and submits the form. It then checks if the URL includes <code><strong>&#x27;demo-app&#x27;</strong></code>, indicating successful redirection post-signup. This test assumes that the provided credentials are valid and that the account does not already exist.</li></ul></li></ol><ol type="1" id="a4639587-8a2c-4912-b359-a5a558402e7f" class="numbered-list" start="3"><li><strong><strong>Test 3: Validation of Account Submission Attempts</strong></strong><p id="12c194f8-cbcf-4e79-a8cb-458c78d9b4dc" class="">This test checks that the signup form validates user input, specifically testing password requirements and unique account constraints.</p><ul id="1ce16398-899c-40d8-9fb9-b470590f8492" class="bulleted-list"><li style="list-style-type:disc">First, it attempts to sign up with a password that does not meet the specified criteria and checks for a validation message.</li></ul><ul id="a2d7af21-4ee8-418e-9839-1813dcaeea6c" class="bulleted-list"><li style="list-style-type:disc">Next, it tries to sign up with a username that already exists and checks for an error message indicating that an account with the same identity already exists.</li></ul></li></ol></details></li></ul></details></li></ul></div></div><p id="ba672206-e72e-43c2-9839-c1bdcc0a8f5f" class="">
+</p><p id="2c95e7d4-543b-4a21-a1dc-b88029521378" class="">
+</p><p id="b6f336a2-ba1a-4a80-a7e3-484e7d253dc2" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
